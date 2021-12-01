@@ -25,6 +25,7 @@
 
         <div class="landing-text">
             <p>Joyerias Brador</p>
+            <p>Bienvenido, {{ Auth::user()->name }}</p>
         </div>
 
         <footer>
