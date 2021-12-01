@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lilita+One&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
-
     <link rel="stylesheet" href="{{ URL::asset('css/landing-page.css') }}" />
     <title>Joyerias Brador</title>
 </head>

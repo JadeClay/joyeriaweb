@@ -1,0 +1,14 @@
+.container .landing-text {
+    margin-top: 10%;
+    margin-left: 20%;
+}
+
+.container .landing-text p {
+    color: rgb(235, 232, 232);
+    font-family: 'Great Vibes', cursive;
+    font-size: 10vw;
+}
+
+.container .landing-text p {
+    border-bottom: 2px solid #FFFF;
+}
