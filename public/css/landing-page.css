@@ -13,3 +13,10 @@
     border-bottom: 2px solid #FFFF;
     max-width: 890px;
 }
+
+.container .landing-text p.subtext {
+    border: none;
+    font-family: 'Lilita One', cursive;
+    font-size: 3vw;
+    text-align: center;
+}

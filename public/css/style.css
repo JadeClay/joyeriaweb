@@ -60,6 +60,10 @@ body {
     background: #3c6e71;
 }
 
+.container nav.nav-menu li.logout, .container nav.nav-menu li.login {
+    margin-left: 40vw;
+}
+
 /* Hover Animation */
 .hvr-underline-from-center {
     display: inline-block;

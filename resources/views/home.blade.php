@@ -24,15 +24,15 @@
             @guest
                 @if (Route::has('login'))
                     <li class="login">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}"><span class="inline-icon material-icons">logout</span> {{ __('Login') }}</a>
                     </li>
                 @endif
             @endguest
             
             @auth
                 <li class="logout">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <span class="inline-icon material-icons">logout</span> {{ __('Logout') }}
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
