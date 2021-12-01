@@ -11,7 +11,7 @@
 
 .container .landing-text p {
     border-bottom: 2px solid #FFFF;
-    max-width: 890px;
+    max-width: 65vw;
 }
 
 .container .landing-text p.subtext {

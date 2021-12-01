@@ -40,13 +40,17 @@
                     </form>
                 </li>
             @endauth
-            
+
+            <li class="ham">
+                <a href="javascript:void(0);" onclick="myFunction()"><span class="inline-icon material-icons">menu</span></a>
+            </li>
         </nav>
 
         
             <div class="landing-text">
                 <p>Joyerias Brador</p>
-                <p class="subtext">Bienvenido, @auth {{ Auth::user()->name }} @endauth @guest Invitado @endguest</p>
+                <!-- IF THE USER IS AUTH, IT WILL DISPLAY ITS NAME, IF NOT, IT WILL PROMPT INVITADO AS DEFAULT MESSAGE -->
+                <p class="subtext">Bienvenido, @auth {{ Auth::user()->name }}. @endauth @guest Invitado. @endguest</p>
             </div>
 
         <footer>

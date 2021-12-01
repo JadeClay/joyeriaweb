@@ -30,6 +30,8 @@ body {
     width: 100%;
     background: #284b63;
     overflow: hidden;
+    -webkit-box-shadow: 1px 3px 10px 1px rgba(0,0,0,0.6); 
+    box-shadow: 1px 3px 10px 1px rgba(0,0,0,0.6);
 }
 
 .container nav.nav-menu li {
@@ -38,6 +40,10 @@ body {
     padding: 3vh;
     margin: 0;
     list-style-type: none;
+}
+
+.container nav.nav-menu li.ham {
+    display: none;
 }
 
 .container nav.nav-menu li a, .container nav.nav-menu li a span.inline-icon.material-icons {
@@ -62,6 +68,14 @@ body {
 
 .container nav.nav-menu li.logout, .container nav.nav-menu li.login {
     margin-left: 40vw;
+}
+
+
+/* Responsive Menu CSS */
+
+@media screen and (max-width: 600px) {
+    .container nav.nav-menu li:not(:first-child) {display: none;}
+
 }
 
 /* Hover Animation */
