@@ -18,7 +18,7 @@
         <nav class="nav-menu">
             <li class="logo"><a href="">Joyerias Brador</a></li>
             <div class="menu">
-                <li class="active"><a href=""><span class="inline-icon material-icons">home</span> Inicio</a></li>
+                <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">home</span> Inicio</a></li>
                 <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">people</span> Usuarios</a></li>
                 <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
                 <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">sell</span> Ventas</a></li>
@@ -53,14 +53,22 @@
         </nav>
 
         
-            <div class="landing-text">
-                <p>Joyerias Brador</p>
-                <!-- IF THE USER IS AUTH, IT WILL DISPLAY ITS NAME, IF NOT, IT WILL PROMPT INVITADO AS DEFAULT MESSAGE -->
-                <p class="subtext">Bienvenido, @auth {{ Auth::user()->name }}. @endauth @guest Invitado. @endguest</p>
-            </div>
+        <div class="landing-text">
+            <p>Joyerias Brador</p>
+            <!-- IF THE USER IS AUTH, IT WILL DISPLAY ITS NAME, IF NOT, IT WILL PROMPT INVITADO AS DEFAULT MESSAGE -->
+            <p class="subtext">Bienvenido, @auth {{ Auth::user()->name }}. @endauth @guest Invitado. @endguest</p>
+        </div>
 
         <footer>
-
+            <div class="copyright">
+                <p>&copy 2013 - Organisation</p>
+            </div>
+            <div class="social">
+                <a href="#" class="support">Contact Us</a>
+                <a href="#" class="face">f</a>
+                <a href="#" class="tweet">t</a>
+                <a href="#" class="linked">in</a>
+            </div>
         </footer>
 
         <script src="{{ asset('js/index.js') }}"></script>

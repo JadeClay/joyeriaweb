@@ -42,6 +42,7 @@ body {
     position: absolute;
     top: 0.2%;
     right: 1%;
+    overflow: hidden;
 }
 
 .container nav.nav-menu li, .container nav.nav-menu .menu li {
@@ -63,6 +64,7 @@ body {
 /* HAMBURGUER STYLES */
 .hamburger {
     display: none;
+    margin-right: 2%;
 }
 
 .bar {
@@ -75,23 +77,49 @@ body {
     background-color: #FFFF;
 }
 
+.container nav.nav-menu li a, .container nav.nav-menu li a span.inline-icon.material-icons {
+    padding-top: 2.2vh;
+    text-decoration: none;
+    color: #FFFF;
+    font-size: 3.3vh;
+}
+
+.inline-icon {
+    vertical-align: bottom;
+}
+
+.container nav.nav-menu li a {
+    font-family: 'Lilita One', cursive;
+}
+
 /* APPLYING MEDIA QUERIES */
 @media (max-width: 768px) {
+    .container nav.nav-menu {
+        z-index: 1;
+    }
+
     .container nav.nav-menu .menu {
+        z-index: 0;
         display: flexbox; 
         position: fixed;
         left: -100%;
-        top: 5rem;
+        top: 7.9vh;
         background-color: #284b63;
         width: 100%;
-        border-radius: 10px;
         text-align: center;
         transition: 0.3s;
         box-shadow:
         0 10px 27px rgba(0, 0, 0, 0.05);
+        height: 100%;
+        width: 100%;
     }
 
-    .container nav.nav-menu .menu.active {
+    .container nav.nav-menu .menu li {
+        display: block;
+        width: 100%;
+    }
+
+    .container nav.nav-menu div.menu.active {
         left: 0;
     }
 
@@ -113,38 +141,7 @@ body {
     }
 }
 
-.container nav.nav-menu li a, .container nav.nav-menu li a span.inline-icon.material-icons {
-    padding-top: 2.2vh;
-    text-decoration: none;
-    color: #FFFF;
-    font-size: 3.3vh;
-}
-
-.inline-icon {
-    vertical-align: bottom;
-}
-
-.container nav.nav-menu li a {
-    font-family: 'Lilita One', cursive;
-}
-
-.container nav.nav-menu li.active {
-    vertical-align: bottom;
-    background: #3c6e71;
-}
-
-
-/* Responsive Menu CSS */
-
-@media screen and (max-width: 600px) {
-    .container nav.nav-menu li:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-}
-
-/* Hover Animation */
+/* Navbar Hover Animation */
 .hvr-underline-from-center {
     display: inline-block;
     vertical-align: bottom;
@@ -174,4 +171,6 @@ body {
     left: 0;
     right: 0;
   }
+
+/* Footer */
 
