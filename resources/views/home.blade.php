@@ -15,35 +15,41 @@
 </head>
 <body>
     <div class="container">
-        <nav class= "nav-menu">
-            <li><a href="">Joyerias Brador</a></li>
-            <li class="active"><a href=""><span class="inline-icon material-icons">home</span> Inicio</a></li>
-            <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">people</span> Usuarios</a></li>
-            <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
-            <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">sell</span> Ventas</a></li>
-            @guest
-                @if (Route::has('login'))
-                    <li class="login">
-                        <a class="nav-link" href="{{ route('login') }}"><span class="inline-icon material-icons">logout</span> {{ __('Login') }}</a>
+        <nav class="nav-menu">
+            <li class="logo"><a href="">Joyerias Brador</a></li>
+            <div class="menu">
+                <li class="active"><a href=""><span class="inline-icon material-icons">home</span> Inicio</a></li>
+                <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">people</span> Usuarios</a></li>
+                <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
+                <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">sell</span> Ventas</a></li>
+                @guest
+                    @if (Route::has('login'))
+                        <li class="login">
+                            <a  href="{{ route('login') }}">
+                                <span class="inline-icon material-icons">logout</span> {{ __('Login') }}
+                            </a>
+                        </li>
+                    @endif
+                @endguest
+                
+                @auth
+                    <li class="logout hvr-underline-from-center">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <span class="inline-icon material-icons">logout</span> {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </li>
-                @endif
-            @endguest
-            
-            @auth
-                <li class="logout">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <span class="inline-icon material-icons">logout</span> {{ __('Logout') }}
-                    </a>
+                @endauth
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </li>
-            @endauth
-
-            <li class="ham">
-                <a href="javascript:void(0);" onclick="myFunction()"><span class="inline-icon material-icons">menu</span></a>
-            </li>
         </nav>
 
         
@@ -56,6 +62,8 @@
         <footer>
 
         </footer>
+
+        <script src="{{ asset('js/index.js') }}"></script>
     </div>
 </body>
 </html>
