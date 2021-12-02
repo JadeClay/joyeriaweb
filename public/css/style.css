@@ -5,7 +5,7 @@ Main Color: #284b63
 Second Color: #3c6e71
 Details: #353535*/
 
-
+/* GENERAL BASIC STYLES */
 
 * {
     margin: 0;
@@ -17,14 +17,17 @@ body {
     background-position: center; 
     background-repeat: no-repeat;
     background-size: cover;
+
 }
 
 .container {
+    display: grid;
     height: 100vh;
     width: 100vw;
     background: rgba(12, 11, 11, 0.4)
 }
 
+/* Navbar Styles */
 .container nav.nav-menu {
     display: flex;
     justify-content: space-between;
@@ -174,3 +177,74 @@ body {
 
 /* Footer */
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+  height: 70px;
+  background-color: #999;
+}
+footer .copyright {
+  width: 50%;
+  float: left;
+}
+@media (max-width: 600px) {
+  footer .copyright {
+    width: 100%;
+  }
+}
+footer .copyright p {
+  padding-left: 10%;
+  color: white;
+  font-size: 0.7em;
+  line-height: 70px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+@media (max-width: 600px) {
+  footer .copyright p {
+    text-align: center;
+    padding: 0;
+  }
+}
+footer .social {
+  width: 50%;
+  float: right;
+}
+@media (max-width: 600px) {
+  footer .social {
+    width: 100%;
+  }
+}
+footer .social a {
+  float: left;
+  line-height: 70px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  -webkit-transition: all, 0.3s;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+footer .social a:hover {
+  background-color: #222;
+  -webkit-transition: all, 0.3s;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+
+.face {
+  background-color: #3D5B94;
+  font-size: 1.2em;
+  width: 60%;
+}
+
+.support {
+  background-color: #6dcd9a;
+  font-size: 0.8em;
+  width: 40%;
+}

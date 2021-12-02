@@ -1,5 +1,13 @@
+/* CSS GRID FOR LANDING PAGE */
+
+.container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 10fr 2fr;
+}
+
+/* Landing Text Styles */
 .container .landing-text {
-    margin-top: 10%;
+    grid-row: 2;
     margin-left: 20%;
 }
 
@@ -7,9 +15,6 @@
     color: rgb(235, 232, 232);
     font-family: 'Great Vibes', cursive;
     font-size: 10vw;
-}
-
-.container .landing-text p {
     border-bottom: 2px solid #FFFF;
     max-width: 65vw;
 }
