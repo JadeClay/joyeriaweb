@@ -1,0 +1,250 @@
+/* Color Palette of Joyerias Brador 
+
+
+Main Color: #284b63 
+Second Color: #3c6e71
+Details: #353535*/
+
+/* GENERAL BASIC STYLES */
+
+* {
+    margin: 0;
+    padding: auto;
+}
+
+body {
+    background-image: url("/images/background-image.jpg");
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.container-body {
+    display: grid;
+    height: 100vh !important;
+    width: 100vw !important;
+    background: rgba(12, 11, 11, 0.4)
+}
+
+/* Navbar Styles */
+.container-body nav.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+    background: #284b63;
+    overflow: hidden;
+    -webkit-box-shadow: 1px 3px 10px 1px rgba(0,0,0,0.6); 
+    box-shadow: 1px 3px 10px 1px rgba(0,0,0,0.6);
+}
+
+.container-body nav.nav-menu .menu {
+    display: inline;
+    position: absolute;
+    top: 0.2%;
+    right: 1%;
+    overflow: hidden;
+}
+
+.container-body nav.nav-menu li, .container-body nav.nav-menu .menu li {
+    display: inline;
+    width: 10vw;
+    padding: 3vh;
+    margin: 0;
+    list-style-type: none;
+}
+
+.container-body nav.nav-menu li.logo {
+    display: inline;
+    padding: 3vh;
+    margin: 0;
+    list-style-type: none;
+    width: auto;
+}
+
+/* HAMBURGUER STYLES */
+.hamburger {
+    display: none;
+    margin-right: 2%;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #FFFF;
+}
+
+.container-body nav.nav-menu li a, .container-body nav.nav-menu li a span.inline-icon.material-icons {
+    padding-top: 2.2vh;
+    text-decoration: none;
+    color: #FFFF;
+    font-size: 3.3vh;
+}
+
+.inline-icon {
+    vertical-align: bottom;
+}
+
+.container-body nav.nav-menu li a {
+    font-family: 'Lilita One', cursive;
+}
+
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 768px) {
+    .container-body nav.nav-menu {
+        z-index: 1;
+    }
+
+    .container-body nav.nav-menu .menu {
+        z-index: 0;
+        display: flexbox; 
+        position: fixed;
+        left: -100%;
+        top: 7.9vh;
+        background-color: #284b63;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+        0 10px 27px rgba(0, 0, 0, 0.05);
+        height: 100%;
+        width: 100%;
+    }
+
+    .container-body nav.nav-menu .menu li {
+        display: block;
+        width: 100%;
+    }
+
+    .container-body nav.nav-menu div.menu.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Navbar Hover Animation */
+.hvr-underline-from-center {
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+  }
+  .hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: #3c6e71;
+    height: 4px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+    left: 0;
+    right: 0;
+  }
+
+/* Footer */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: inline-block;
+  height: 70px;
+  background-color: #999;
+}
+footer .copyright {
+  width: 50%;
+  float: left;
+}
+@media (max-width: 600px) {
+  footer .copyright {
+    width: 100%;
+  }
+}
+footer .copyright p {
+  padding-left: 10%;
+  color: white;
+  font-size: 0.7em;
+  line-height: 70px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+@media (max-width: 600px) {
+  footer .copyright p {
+    text-align: center;
+    padding: 0;
+  }
+}
+footer .social {
+  width: 50%;
+  float: right;
+}
+@media (max-width: 600px) {
+  footer .social {
+    width: 100%;
+  }
+}
+footer .social a {
+  float: left;
+  line-height: 70px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  -webkit-transition: all, 0.3s;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+footer .social a:hover {
+  background-color: #222;
+  -webkit-transition: all, 0.3s;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+
+.face {
+  background-color: #3D5B94;
+  font-size: 1.2em;
+  width: 60%;
+}
+
+.support {
+  background-color: #6dcd9a;
+  font-size: 0.8em;
+  width: 40%;
+}
