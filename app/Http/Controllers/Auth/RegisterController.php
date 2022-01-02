@@ -36,10 +36,13 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+
+    /* public function __construct()
     {
         $this->middleware('guest');
-    }
+    } 
+        This got commented because interfered with how the application is organized.
+    */
 
     /**
      * Get a validator for an incoming registration request.

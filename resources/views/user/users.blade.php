@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -52,36 +53,67 @@
 
         </nav>
 
-        <div class="form-structor">
-            <div class="signup">
-                <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
-                <div class="form-holder">
-                    <input type="text" class="input" placeholder="Name" />
-                    <input type="email" class="input" placeholder="Email" />
-                    <input type="password" class="input" placeholder="Password" />
-                    <input type="password" class="input" placeholder="Password" />
-                    <input type="password" class="input" placeholder="Password" />
-                    <input type="password" class="input" placeholder="Password" />
-                    <input type="password" class="input" placeholder="Password" />
-                </div>
-                <button class="submit-btn">Sign up</button>
+        <form method="POST" action="{{ route('register') }}" class="form-structor">
+            <div class="form-title">
+                <p><span class="inline-icon material-icons">people</span><br> Usuarios</p>
             </div>
-            <div class="login slide-up">
-                <div class="center">
-                    <h2 class="form-title" id="login"><span>or</span>Log in</h2>
-                    <div class="form-holder">
-                        <input type="email" class="input" placeholder="Email" />
-                        <input type="password" class="input" placeholder="Password" />
-                        <input type="password" class="input" placeholder="Password" />
-                        <input type="password" class="input" placeholder="Password" />
-                        <input type="password" class="input" placeholder="Password" />
+            
+            <div class="form-content">
+                @csrf
+                
+                <div>
+                    <label for="name">{{ __('Nombre') }}</label>
+                    <br>
+                    <input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <br>
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div>
+                    <label for="email">{{ __('Correo Electrónico') }}</label>
+                    <br>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    <br>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div>
+                    <label for="password">{{ __('Contraseña') }}</label>
+                    <br>
+                    <input id="password" type="password" name="password" required autocomplete="new-password">
+                    <br>
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div>
+                    <label for="password-confirm">{{ __('Confirmar contraseña') }}</label>
+                    <br>
+                    <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
+                    <br>
+                </div>
 
-                    </div>
-                    <button class="submit-btn">Log in</button>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-submit">
+                        {{ __('Crear usuario') }}
+                    </button>
+
+                    <a class="btn btn-index" href="/">
+                        {{ __('Revisar usuarios') }}
+                    </a>
                 </div>
             </div>
-        </div>
 
+        </form>
 
         <footer>
             <div class="copyright">

@@ -9,6 +9,7 @@
 .container .landing-text {
     grid-row: 2;
     margin-left: 20%;
+    height: 95vh;
 }
 
 .container .landing-text p {
@@ -24,4 +25,8 @@
     font-family: 'Lilita One', cursive;
     font-size: 3vw;
     text-align: center;
+}
+
+.container .landing-text p:not(.subtext) {
+    margin-top: 20vh;
 }
