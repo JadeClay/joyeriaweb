@@ -8,7 +8,7 @@ use App\Models\User;
 class UserController extends Controller
 {   
     public function index(){
-        $users = User::all();
+        $users = User::all(); // Retrieve all users and save it onto a variable
         return $users;
     }
 

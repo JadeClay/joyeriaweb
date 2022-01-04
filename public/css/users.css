@@ -1,72 +1,12 @@
-.form-structor {
-  margin: auto;
-  margin-top: 10vh;
-  background-color: #222;
-  border-radius: 15px;
-  height: 80vh;
-  width: 50vw;
-  margin-bottom: 10vh;
-  position: relative;
-  overflow: hidden;
-  font-family: 'Lilita One', cursive;
-}
+@import url(forms.css);
 
-.form-structor .form-title {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 3vh;
-}
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 768px) {
+  .center {
+    flex-direction: column;
+  }
 
-.form-structor .form-title p {
-  max-width: 50%;
-  color: rgb(235, 232, 232);
-  text-align: center;
-  font-size: 2em;
-  border-bottom: 4px solid rgb(235, 232, 232);;
-}
-
-.form-structor .form-title p span.inline-icon.material-icons {
-  font-size: 6vh;
-}
-
-.form-structor button {
-  font-family: 'Lilita One', cursive;
-}
-
-.form-structor .form-content {
-  display: flex;
-  width: 100%;
-  margin-top: 3vh;
-  align-items: center;
-  flex-direction: column;
-  color: rgb(235, 232, 232);
-}
-
-.form-structor .form-content input {
-  border: 0;
-  border-left: 4px solid #3c6e71;
-  padding: 0.6vw;
-}
-
-.form-structor .form-content div {
-  margin-bottom: 3vh;
-}
-
-.form-structor .form-content div.form-actions .btn {
-  padding: 1.1vw;
-  text-decoration: none;
-  color: rgb(235, 232, 232);
-}
-
-.form-structor .form-content div.form-actions .btn-submit {
-  background-color: #2e8b57;
-  border-radius: 4px;
-  border: 2px solid #2e8b57;
-  transition-duration: 0.5s;
-}
-
-.form-structor .form-content div.form-actions .btn-submit:hover {
-  background: none;
-  transition-duration: 0.5s;
+  .container {
+    height: 220vh;
+  }
 }
