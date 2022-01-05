@@ -7,6 +7,6 @@
   }
 
   .container {
-    height: 220vh;
+    height: 220vh !important;
   }
 }

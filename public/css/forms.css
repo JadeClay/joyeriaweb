@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .center {
     margin-top: 0;
     margin: auto;
@@ -5,7 +9,7 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
-  }
+}
   
   .form-structor {
     margin-top: 10vh;

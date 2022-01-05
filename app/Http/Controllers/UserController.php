@@ -9,7 +9,7 @@ class UserController extends Controller
 {   
     public function index(){
         $users = User::all(); // Retrieve all users and save it onto a variable
-        return $users;
+        return view('user.users-index')->with('users', $users);
     }
 
     public function create(){
