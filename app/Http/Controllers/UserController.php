@@ -58,7 +58,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.user-edit', ['user' => User::find($id)]);
     }
 
     /**
@@ -70,7 +70,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->update($request->except('_token', 'password'));
+        return redirect(route('user.index'));
     }
 
     /**
