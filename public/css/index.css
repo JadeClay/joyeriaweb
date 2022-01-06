@@ -1,10 +1,11 @@
 .styled-table {
     border-collapse: collapse;
-    margin: -4vh auto 20vh;
+    margin: 3vh auto 7vh;
     font-size: 0.9em;
     font-family: sans-serif;
     width: 80%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    min-height: 70vh;
 }
 
 .styled-table thead tr {
@@ -29,4 +30,24 @@
 
 footer {
     margin-top: 8.1vh;
+}
+
+.pagination {
+    display: inline-block;
+    margin: 0 auto;
+    border: 2px solid #3c6e71;
+}
+  
+.pagination a, .pagination span {
+    background-color: #ddd;
+    color: black;
+    float: left;
+    padding: 8px 30px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination a span {
+    border: none;
+    padding: 0;
 }
