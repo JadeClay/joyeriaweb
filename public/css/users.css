@@ -5,8 +5,4 @@
   .center {
     flex-direction: column;
   }
-
-  .container {
-    height: 220vh !important;
-  }
 }

@@ -27,6 +27,7 @@ body {
     background: rgba(12, 11, 11, 0.4);
     grid-template-columns: 1fr;
     grid-template-rows: 4fr 10fr 2fr;
+    max-height: 110vh;
 }
 
 /* Navbar Styles */
@@ -180,12 +181,12 @@ body {
 /* Footer */
 
 footer {
-  position: relative;
-  bottom: 0;
   width: 100%;
   display: inline-block;
   height: 70px;
   background-color: #999;
+  margin-top: 4.3vh;
+  margin-bottom: -6vh;
 }
 footer .copyright {
   width: 50%;

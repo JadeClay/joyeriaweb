@@ -8,7 +8,7 @@ use App\Models\User;
 class UserController extends Controller
 {   
     public function index(){
-        $users = User::all(); // Retrieve all users and save it onto a variable
+        $users = User::paginate(10); // Retrieve all users and save it into a variable
         return view('user.users-index')->with('users', $users);
     }
 
