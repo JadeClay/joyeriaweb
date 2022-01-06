@@ -62,7 +62,7 @@
                     {{ __('Crear usuario') }}
                 </button>
 
-                <a class="btn btn-index" href="/users-index">
+                <a class="btn btn-index" href="{{ route('user.index') }}">
                     {{ __('Revisar usuarios') }}
                 </a>
             </div>

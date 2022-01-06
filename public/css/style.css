@@ -41,6 +41,7 @@ body {
     overflow: hidden;
     -webkit-box-shadow: 1px 3px 10px 1px rgba(0,0,0,0.6); 
     box-shadow: 1px 3px 10px 1px rgba(0,0,0,0.6);
+    margin-bottom: 0vh;
 }
 
 .container nav.nav-menu .menu {

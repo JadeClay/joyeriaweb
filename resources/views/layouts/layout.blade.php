@@ -18,7 +18,7 @@
             <li class="logo"><a href="">Joyerias Brador</a></li>
             <div class="menu">
             <li class="hvr-underline-from-center"><a href="/"><span class="inline-icon material-icons">home</span> Inicio</a></li>
-                <li class="hvr-underline-from-center"><a href="/users"><span class="inline-icon material-icons">people</span> Usuarios</a></li>
+                <li class="hvr-underline-from-center"><a href="{{ route('user.create') }}"><span class="inline-icon material-icons">people</span> Usuarios</a></li>
                 <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
                 <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">sell</span> Ventas</a></li>
                 @guest

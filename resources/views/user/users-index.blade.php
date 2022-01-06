@@ -28,6 +28,23 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->created_at }}</td>
                 <td>{{ $user->updated_at }}</td>
+                <td>
+                    <form action="{{ route('user.destroy', $user->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-delete">
+                            <span class="material-icons">
+                                delete
+                            </span>
+                        </button> 
+                    </form>
+
+                    <a class="btn btn-edit" href="{{ route('user.edit', $user->id) }}">
+                        <span class="material-icons">
+                                edit
+                        </span>
+                    </a>
+                </td>
             </tr>
         @endforeach
     </tbody>

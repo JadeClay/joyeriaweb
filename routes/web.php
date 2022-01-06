@@ -19,9 +19,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/users', [App\Http\Controllers\UserController::class, 'create']);
-
-Route::get('/users-index', [App\Http\Controllers\UserController::class, 'index']);
+Route::resource('user', UserController::class);
 
 Auth::routes();
 
