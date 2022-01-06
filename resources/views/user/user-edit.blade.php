@@ -59,7 +59,7 @@
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-submit">
-                    {{ __('Crear usuario') }}
+                    {{ __('Modificar usuario') }}
                 </button>
 
                 <a class="btn btn-index" href="{{ route('user.index') }}">
