@@ -15,6 +15,7 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Email</th>
+            <th>Rol</th>
             <th>Creado</th>
             <th>Modificado</th>
             <th>Acciones</th>
@@ -26,6 +27,13 @@
                 <td><strong>{{ $user->id }}</strong></td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
+                <td>
+                    @if ($user->role === 1)
+                        Administrador
+                    @else
+                        Usuario
+                    @endif
+                </td>
                 <td>{{ $user->created_at }}</td>
                 <td>{{ $user->updated_at }}</td>
                 <td>

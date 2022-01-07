@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="center">
-    <form method="POST" action="{{ route('register') }}" class="form-structor">
+    <form method="POST" action="{{ route('user.store') }}" class="form-structor">
         <div class="form-title">
             <p><span class="inline-icon material-icons">people</span><br> Usuarios</p>
         </div>
@@ -55,7 +55,22 @@
                 <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
                 <br>
             </div>
+            <div>
+                <input class="form-check-input" type="checkbox" value="1" id="role" name="role">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Admin
+                </label>
 
+                <input class="form-check-input" type="checkbox" value="0" id="role" name="role">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Usuario
+                </label>
+                @error('role')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-submit">
