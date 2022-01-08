@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Employee;
 use App\Models\Job;
 use App\Models\Shop;
+use App\Models\User;
 
-class UserController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::simplePaginate(5); // Retrieve all users, using pagination method.
-        return view('user.index')->with('users', $users);
+        $employee = Employee::simplePaginate(5); // Retrieve all users, using pagination method.
+        return view('employee.index',["employees"=>$employee,"jobs" => Job::all(),"shops" => Shop::all(),"users"=> User::all()]);
     }
 
     /**
@@ -27,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.users',["users" => User::all(),"jobs" => Job::all(),"shops" => Shop::all()]);
+        //
     }
 
     /**
@@ -38,9 +39,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->except('_token'));
-
-        return redirect(route('user.index'));
+        $employee = Employee::create($request->except('_token'));
+        return redirect(route('employee.index'));
     }
 
     /**
@@ -62,7 +62,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('user.edit', ['user' => User::find($id)]);
+        return view('employee.edit', ['employee' => Employee::find($id), "jobs" => Job::all(),"shops" => Shop::all(),"users"=> User::all()]);
     }
 
     /**
@@ -74,10 +74,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id); // If finds it, proceed the execution. If doesn't finds it, it fails.
+        $employee = Employee::findOrFail($id); // If finds it, proceed the execution. If doesn't finds it, it fails.
 
-        $user->update($request->except('_token'));
-        return redirect(route('user.index'));
+        $employee->update($request->except('_token'));
+        return redirect(route('employee.index'));
     }
 
     /**
@@ -88,7 +88,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $success = User::destroy($id);
-        return redirect(route('user.index'));
+        $success = Employee::destroy($id);
+        return redirect(route('employee.index'));
     }
 }

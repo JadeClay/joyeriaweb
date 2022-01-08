@@ -1,4 +1,11 @@
 /* CSS GRID FOR LANDING PAGE */
+body {
+    background-image: url("/images/background-image.jpg");
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto !important;
+}
 
 .container{
     grid-template-columns: 1fr;

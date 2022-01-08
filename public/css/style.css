@@ -13,10 +13,6 @@ Details: #353535*/
 }
 
 body {
-    background-image: url("/images/background-image.jpg");
-    background-position: center; 
-    background-repeat: no-repeat;
-    background-size: cover;
     overflow-x: hidden;
 }
 

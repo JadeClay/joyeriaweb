@@ -13,7 +13,6 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nombre</th>
             <th>Email</th>
             <th>Rol</th>
             <th>Creado</th>
@@ -25,7 +24,6 @@
         @foreach($users as $user)
             <tr>
                 <td><strong>{{ $user->id }}</strong></td>
-                <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
                     @if ($user->role === 1)

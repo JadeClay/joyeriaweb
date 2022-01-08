@@ -1,8 +1,7 @@
-@if ($paginator->hasPages())
     <nav role="navigation" aria-label="Pagination Navigation" class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <span class="material-icons">
+            <span class="material-icons" disabled>
                 navigate_before
             </span>
         @else
@@ -15,7 +14,7 @@
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-            <a href="{{ $paginator->nextPageUrl() }}" rel="next">
+            <a href="{{ $paginator->nextPageUrl() }}" rel="next" disabled>
                 <span class="material-icons">
                     navigate_next
                 </span>
@@ -26,4 +25,3 @@
             </span>
         @endif
     </nav>
-@endif
