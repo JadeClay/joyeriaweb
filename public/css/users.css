@@ -4,6 +4,14 @@
   height: 105vh;
 }
 
+.form-structor.order {
+  height: 140vh;
+}
+
+.form-structor.existent-product {
+  height: 60vh;
+}
+
 /* APPLYING MEDIA QUERIES */
 @media (max-width: 768px) {
   .center {

@@ -36,6 +36,7 @@
                     <li class="hvr-underline-from-center"><a href="/users"><span class="inline-icon material-icons">people</span> Usuarios</a></li>
                     <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
                     <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">sell</span> Ventas</a></li>
+                    <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">percent</span> Productos</a></li>
                     @guest
                         @if (Route::has('login'))
                             <li class="login">
