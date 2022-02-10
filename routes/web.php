@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SellController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::resource('user', UserController::class);
 Route::resource('employee', EmployeeController::class);
 
 Route::resource('sell', SellController::class);
+
+Route::resource('client', ClientController::class);
 
 Auth::routes();
 
