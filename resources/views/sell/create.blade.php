@@ -138,7 +138,7 @@
                     {{ __('Crear pedido') }}
                 </button>
 
-                <a class="btn btn-index" href="{{ route('user.index') }}">
+                <a class="btn btn-index" href="{{ route('sell.index') }}">
                     {{ __('Revisar pedidos') }}
                 </a>
             </div>
@@ -182,13 +182,40 @@
                     </span>
                 @enderror
             </div>
+            <div>
+                <label for="stock">Cantidad</label>
+                <br>
+                <input id="stock" type="number" name="stock" required>
+                <br>
+                @error('stock')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <label for="client_id">Cliente</label>
+                <br>
+                <select name="client_id" id="client_id">
+                    <option value="0">Selecciona:</option>
+                    @foreach ($clients as $client)
+                        <option value="{{ $client->id }}">{{ $client->name }}, {{ $client->surname }}</option>
+                    @endforeach
+                </select>
+                <br>
+                @error('client_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
             <div class="form-actions">
                 <button type="submit" class="btn btn-submit">
-                    {{ __('Crear empleado') }}
+                    {{ __('Facturar productos') }}
                 </button>
 
-                <a class="btn btn-index" href="{{ route('employee.index') }}">
-                    {{ __('Revisar empleados') }}
+                <a class="btn btn-index" href="{{ route('sell.index') }}">
+                    {{ __('Revisar facturas') }}
                 </a>
             </div>
         </div>

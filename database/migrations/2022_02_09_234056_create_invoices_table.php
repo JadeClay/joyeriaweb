@@ -22,6 +22,7 @@ class CreateInvoicesTable extends Migration
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
+            $table->boolean('hasOrder'); // 0 if doesn't have an order, 1 if.
             $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

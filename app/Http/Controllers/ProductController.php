@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -13,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::simplePaginate(5); // Retrieve all users, using pagination method.
+        return view('product.index',["products"=>$products]);
     }
 
     /**
@@ -34,7 +36,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::create($request->except('_token'));
+        return redirect(route('product.index'));
     }
 
     /**
@@ -79,6 +82,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $success = Product::destroy($id);
+        return redirect(route('product.index'));
     }
 }

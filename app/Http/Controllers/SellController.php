@@ -18,7 +18,8 @@ class SellController extends Controller
      */
     public function index()
     {
-        //
+        $invoice = Invoice::simplePaginate(5); // Retrieve all users, using pagination method.
+        return view('sell.index',["invoices"=>$invoice, "clients"=>Client::all(), "products"=>Product::all(), "orders"=>Order::all()]);
     }
 
     /**
@@ -55,11 +56,32 @@ class SellController extends Controller
             $invoice->client_id = $request->client_id;
             $invoice->product_id = $order->id;
             $invoice->user_id = $request->user_id;
+            $invoice->hasOrder = 1;
             $invoice->save();
 
             return redirect(route('employee.index'));
         } else {
-            # code...
+            $product = Product::find($request->product_id);
+            $actualStock = $product->stock;
+            $product->stock = $actualStock - $request->stock;
+            $product->save();
+            
+            $amount = $request->amount;
+            $itbis = round(($amount*18)/100, 0, PHP_ROUND_HALF_UP);
+            $subtotal = $amount + $itbis;
+            $date = date("Y-m-d");
+
+            $invoice = new Invoice;
+            $invoice->amount = $amount;
+            $invoice->itbis = $itbis;
+            $invoice->subtotal = $subtotal;
+            $invoice->date = $date;
+            $invoice->client_id = $request->client_id;
+            $invoice->product_id = $product->id;
+            $invoice->user_id = $request->user_id;
+            $invoice->hasOrder = 0;
+            $invoice->save();
+
         }
         
     }

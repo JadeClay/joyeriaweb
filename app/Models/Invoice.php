@@ -17,5 +17,6 @@ class Invoice extends Model
         'client_id',
         'product_id',
         'user_id',
+        'hasOrder',
     ];
 }

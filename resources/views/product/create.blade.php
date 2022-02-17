@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="center">
-<form method="POST" action="{{ route('client.store') }}" class="form-structor product">
+<form method="POST" action="{{ route('product.store') }}" class="form-structor product">
         <div class="form-title">
             <p><span class="inline-icon material-icons">percent</span><br> Productos</p>
         </div>
@@ -63,7 +63,7 @@
             <div>
                 <label for="material">{{ __('Material') }}</label>
                 <br>
-                <input id="material" type="number" name="material" required autocomplete="material">
+                <input id="material" type="text" name="material" required autocomplete="material">
                 <br>
                 @error('material')
                     <span class="invalid-feedback" role="alert">
