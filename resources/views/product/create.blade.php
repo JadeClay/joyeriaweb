@@ -8,9 +8,9 @@
 
 @section('content')
 <div class="center">
-<form method="POST" action="{{ route('client.store') }}" class="form-structor client">
+<form method="POST" action="{{ route('client.store') }}" class="form-structor product">
         <div class="form-title">
-            <p><span class="inline-icon material-icons">people</span><br> Clientes</p>
+            <p><span class="inline-icon material-icons">percent</span><br> Productos</p>
         </div>
                 
         <div class="form-content">
@@ -28,44 +28,44 @@
                 @enderror
             </div>
             <div>
-                <label for="surname">{{ __('Apellidos') }}</label>
+                <label for="stock">{{ __('Stock Inicial') }}</label>
                 <br>
-                <input id="surname" type="text" name="surname" required autocomplete="surname" autofocus>
+                <input id="stock" type="text" name="stock" required autocomplete="stock" autofocus>
                 <br>
-                @error('surname')
+                @error('stock')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
             <div>
-                <label for="identification">{{ __('Cedula') }}</label>
+                <label for="size">{{ __('Size') }}</label>
                 <br>
-                <input id="identification" type="text" name="identification"  required autocomplete="identification">
+                <input id="size" type="text" name="size"  required autocomplete="size">
                 <br>
-                @error('identification')
+                @error('size')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
             <div>
-                <label for="direction">{{ __('Direccion') }}</label>
+                <label for="color">{{ __('Color') }}</label>
                 <br>
-                <input id="direction" type="text" name="direction" required autocomplete="direction">
+                <input id="color" type="text" name="color" required autocomplete="color">
                 <br>
-                @error('direction')
+                @error('color')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
             <div>
-                <label for="telephone">{{ __('Teléfono') }}</label>
+                <label for="material">{{ __('Material') }}</label>
                 <br>
-                <input id="telephone" type="number" name="telephone" required autocomplete="telephone">
+                <input id="material" type="number" name="material" required autocomplete="material">
                 <br>
-                @error('telephone')
+                @error('material')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -73,11 +73,11 @@
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn btn-submit">
-                    {{ __('Crear cliente') }}
+                    {{ __('Crear producto') }}
                 </button>
 
-                <a class="btn btn-index" href="{{ route('client.index') }}">
-                    {{ __('Revisar clientes') }}
+                <a class="btn btn-index" href="{{ route('product.index') }}">
+                    {{ __('Revisar productos') }}
                 </a>
             </div>
         </div>

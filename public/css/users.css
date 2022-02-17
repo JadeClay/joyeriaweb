@@ -12,6 +12,14 @@
   height: 60vh;
 }
 
+.form-structor.client {
+  height: 90vh;
+}
+
+.form-structor.product {
+  height: 86vh;
+}
+
 /* APPLYING MEDIA QUERIES */
 @media (max-width: 768px) {
   .center {
