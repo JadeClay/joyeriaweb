@@ -59,7 +59,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('product.edit', ['product' => Product::find($id)]);
     }
 
     /**
@@ -71,7 +71,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id); // If finds it, proceed the execution. If doesn't finds it, it fails.
+
+        $product->update($request->except('_token'));
+        return redirect(route('product.index'));
     }
 
     /**

@@ -31,9 +31,13 @@
                 <td>{{ $employee->surname }}</td>
                 <td>{{ $employee->identification }}</td>
                 <td>
+                @if (empty($employee->user_id))
+                    No tiene acceso al sistema.
+                @else
                     {{ 
                         $users->find($employee->user_id)->email 
                     }}
+                @endif
                 </td>
                 <td>{{ $employee->direction }}</td>
                 <td>

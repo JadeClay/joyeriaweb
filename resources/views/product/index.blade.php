@@ -40,6 +40,12 @@
                             </span>
                         </button> 
                     </form>
+
+                    <a class="btn btn-edit" href="{{ route('product.edit', $product->id) }}">
+                        <span class="material-icons">
+                                edit
+                        </span>
+                    </a>
                 </td>
             </tr>
         @endforeach

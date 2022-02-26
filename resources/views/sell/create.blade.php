@@ -18,17 +18,6 @@
             <input type="hidden" name="invoiceType" value="1">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">   
             <div>
-                <label for="name">Nombre del Pedido</label>
-                <br>
-                <input id="name" type="text" name="name" value="{{ old('name') }}" required>
-                <br>
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div>
                 <label for="client_id">Cliente</label>
                 <br>
                 <select name="client_id" id="client_id">
@@ -39,6 +28,17 @@
                 </select>
                 <br>
                 @error('client_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <label for="name">Nombre del Pedido</label>
+                <br>
+                <input id="name" type="text" name="name" value="{{ old('name') }}" required>
+                <br>
+                @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -135,11 +135,11 @@
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-submit">
-                    {{ __('Crear pedido') }}
+                    {{ __('Facturar pedido') }}
                 </button>
 
                 <a class="btn btn-index" href="{{ route('sell.index') }}">
-                    {{ __('Revisar pedidos') }}
+                    {{ __('Revisar facturas') }}
                 </a>
             </div>
         </div>
@@ -154,6 +154,7 @@
         <div class="form-content">
             @csrf
             <input type="hidden" name="invoiceType" value="2">  
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">   
 
             <div>
                 <label for="product_id">Producto</label>
@@ -161,11 +162,29 @@
                 <select name="product_id" id="product_id">
                     <option value="0">Selecciona:</option>
                     @foreach ($products as $product)
-                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                        @if ($product->stock > 0)
+                            <option value="{{ $product->id }}">{{ $product->name }}</option>
+                        @endif
                     @endforeach
                 </select>
                 <br>
                 @error('product_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div>
+                <label for="client_id">Cliente</label>
+                <br>
+                <select name="client_id" id="client_id">
+                    <option value="0">Selecciona:</option>
+                    @foreach ($clients as $client)
+                        <option value="{{ $client->id }}">{{ $client->name }}, {{ $client->surname }}</option>
+                    @endforeach
+                </select>
+                <br>
+                @error('client_id')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -188,22 +207,6 @@
                 <input id="stock" type="number" name="stock" required>
                 <br>
                 @error('stock')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div>
-                <label for="client_id">Cliente</label>
-                <br>
-                <select name="client_id" id="client_id">
-                    <option value="0">Selecciona:</option>
-                    @foreach ($clients as $client)
-                        <option value="{{ $client->id }}">{{ $client->name }}, {{ $client->surname }}</option>
-                    @endforeach
-                </select>
-                <br>
-                @error('client_id')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

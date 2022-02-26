@@ -23,6 +23,7 @@ body {
     border-radius: 15px;
     height: 80vh;
     width: 30vw;
+    min-width: 300px;
     margin-bottom: 10vh;
     overflow: hidden;
     font-family: 'Lilita One', cursive;
@@ -59,15 +60,16 @@ body {
     flex-direction: column;
     color: rgb(235, 232, 232);
   }
-  
-  .form-structor .form-content input:not(.form-check-input) {
+
+  .form-structor .form-content input:not(.form-check-input), .form-structor .form-content select {
     border: 0;
     border-left: 4px solid #3c6e71;
     padding: 0.6vw;
-    width: 11.5vw;
+    width: 84%;
   }
   
   .form-structor .form-content div {
+    min-width: 220px;
     margin-bottom: 3vh;
   }
   
@@ -87,13 +89,6 @@ body {
   .form-structor .form-content div.form-actions .btn-submit:hover {
     background: none;
     transition-duration: 0.5s;
-  }
-
-  .form-structor .form-content select {
-    border: 0;
-    border-left: 4px solid #3c6e71;
-    padding: 0.4vw;
-    width: 13vw;
   }
 
   .container {

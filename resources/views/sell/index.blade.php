@@ -43,18 +43,17 @@
                         if($invoice->hasOrder){
                             $id = $invoice->product_id;
                             $name = $orders->find($id)->name;
+                            $link = "<a href=" . route('sell.show', $invoice->id) . ">[PEDIDO] </a>";
+                            echo $link . $name;
+                        } else {
+                            $id = $invoice->product_id;
+                            $name = $products->find($id)->name;
                             echo $name;
                         }
                     ?>
                 </td>
                 <td>
-                    <?php 
-                        if($invoice->hasOrder){
-                            $id = $invoice->product_id;
-                            $name = $orders->find($id)->name;
-                            echo $name;
-                        }
-                    ?>
+                    {{ $users->find($invoice->user_id)->email }}
                 </td>
                 <td>
                     <form action="{{ route('sell.destroy', $invoice->id) }}" method="post">

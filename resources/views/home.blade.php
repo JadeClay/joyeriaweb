@@ -9,19 +9,18 @@
 @section('content')    
     <div class="landing-text">
         <p>Joyerias Brador</p>
-        <!-- IF THE USER IS AUTH, IT WILL DISPLAY ITS NAME IF LINKED WITH AN EMPLOYEE OR ITS EMAIL IF NOT. 
+        <!-- IF THE USER IS AUTH, IT WILL DISPLAY ITS EMAIL. 
         IF USER IS NOT AUTHENTICATED, IT WILL PROMPT INVITADO AS DEFAULT MESSAGE -->
         <p class="subtext">Bienvenido, 
-            @if ($employees->find(Auth::user()) > 0)
-                @auth
-                    {{ $employees->find(Auth::user()->id)->name }}.
-                @endauth
-            @else
-                @auth
-                    {{ Auth::user()->email }}.
-                @endauth     
-                @guest Invitado. @endguest
-            @endif
+            @auth
+                @if (!empty($employees->find(Auth::user()->employee_id)))
+                    {{$employees->find(Auth::user()->employee_id)->name}}.
+                @else
+                    {{ Auth::user()->email }}.   
+                @endif
+            @endauth
+            
+            @guest Invitado. @endguest
         </p>
     </div>
 @endsection

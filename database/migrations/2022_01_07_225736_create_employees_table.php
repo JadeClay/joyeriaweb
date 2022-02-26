@@ -19,10 +19,9 @@ class CreateEmployeesTable extends Migration
             $table->string('surname');
             $table->BigInteger('identification');
             $table->string('direction');
-            $table->unsignedBigInteger('user_id');
+            $table->BigInteger('user_id')->nullable();
             $table->unsignedBigInteger('job_id');
             $table->unsignedBigInteger('shop_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('job_id')->references('id')->on('jobs');
             $table->foreign('shop_id')->references('id')->on('shops');
             $table->timestamps();

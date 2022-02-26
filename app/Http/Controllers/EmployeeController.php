@@ -40,6 +40,13 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $employee = Employee::create($request->except('_token'));
+
+        if(!empty($request->user_id)){
+            $user = User::findOrFail($request->user_id);
+            $user->employee_id = $employee->id;
+            $user->save();
+        }
+        
         return redirect(route('employee.index'));
     }
 

@@ -107,7 +107,7 @@
             <div>
                 <label for="identification">{{ __('Cedula') }}</label>
                 <br>
-                <input id="identification" type="identification" name="identification" value="{{ old('identification') }}" required autocomplete="identification">
+                <input id="identification" type="number" name="identification" value="{{ old('identification') }}" required autocomplete="identification">
                 <br>
                 @error('identification')
                     <span class="invalid-feedback" role="alert">

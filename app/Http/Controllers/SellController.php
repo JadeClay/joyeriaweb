@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Invoice;
+use App\Models\Employee;
 
 class SellController extends Controller
 {
@@ -19,7 +20,7 @@ class SellController extends Controller
     public function index()
     {
         $invoice = Invoice::simplePaginate(5); // Retrieve all users, using pagination method.
-        return view('sell.index',["invoices"=>$invoice, "clients"=>Client::all(), "products"=>Product::all(), "orders"=>Order::all()]);
+        return view('sell.index',["invoices"=>$invoice, "clients"=>Client::all(), "products"=>Product::all(), "orders"=>Order::all(), "users" =>User::all()]);
     }
 
     /**
@@ -59,7 +60,7 @@ class SellController extends Controller
             $invoice->hasOrder = 1;
             $invoice->save();
 
-            return redirect(route('employee.index'));
+            return redirect(route('sell.index'));
         } else {
             $product = Product::find($request->product_id);
             $actualStock = $product->stock;
@@ -82,6 +83,7 @@ class SellController extends Controller
             $invoice->hasOrder = 0;
             $invoice->save();
 
+            return redirect(route('sell.index'));
         }
         
     }
@@ -94,7 +96,7 @@ class SellController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('sell.show', ['order' => Order::find($id), 'clients' => Client::all()]);
     }
 
     /**
