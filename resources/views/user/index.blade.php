@@ -17,7 +17,9 @@
             <th>Rol</th>
             <th>Creado</th>
             <th>Modificado</th>
-            <th>Acciones</th>
+            @if (Auth::user()->role == 1)
+                <th>Acciones</th>
+            @endif 
         </tr>
     </thead>
     <tbody>
@@ -34,23 +36,25 @@
                 </td>
                 <td>{{ $user->created_at }}</td>
                 <td>{{ $user->updated_at }}</td>
-                <td>
-                    <form action="{{ route('user.destroy', $user->id) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-delete">
-                            <span class="material-icons">
-                                delete
-                            </span>
-                        </button> 
-                    </form>
+                @if (Auth::user()->role == 1)
+                    <td>
+                        <form action="{{ route('user.destroy', $user->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-delete">
+                                <span class="material-icons">
+                                    delete
+                                </span>
+                            </button> 
+                        </form>
 
-                    <a class="btn btn-edit" href="{{ route('user.edit', $user->id) }}">
-                        <span class="material-icons">
-                                edit
-                        </span>
-                    </a>
-                </td>
+                        <a class="btn btn-edit" href="{{ route('user.edit', $user->id) }}">
+                            <span class="material-icons">
+                                    edit
+                            </span>
+                        </a>
+                    </td>
+                @endif
             </tr>
         @endforeach
     </tbody>

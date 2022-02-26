@@ -20,7 +20,9 @@
             <th>Cliente</th>
             <th>Producto/Pedido</th>
             <th>Empleado</th>
-            <th>Acciones</th>
+            @if (Auth::user()->role == 1)
+                <th>Acciones</th>
+            @endif
         </tr>
     </thead>
     <tbody>
@@ -55,17 +57,19 @@
                 <td>
                     {{ $users->find($invoice->user_id)->email }}
                 </td>
-                <td>
-                    <form action="{{ route('sell.destroy', $invoice->id) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-delete">
-                            <span class="material-icons">
-                                delete
-                            </span>
-                        </button> 
-                    </form>
-                </td>
+                @if (Auth::user()->role == 1)
+                    <td>
+                        <form action="{{ route('sell.destroy', $invoice->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-delete">
+                                <span class="material-icons">
+                                    delete
+                                </span>
+                            </button> 
+                        </form>
+                    </td>
+                @endif
             </tr>
         @endforeach
     </tbody>

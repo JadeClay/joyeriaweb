@@ -45,7 +45,9 @@
                 <br>
             </div>
             <div>
-                <input class="form-check-input" type="checkbox" value="1" id="role" name="role">
+                <input class="form-check-input" type="checkbox" value="1" id="role" name="role" @if (Auth::user()->role == 0)
+                    disabled
+                @endif>
                 <label class="form-check-label" for="flexCheckDefault">
                     Admin
                 </label>
