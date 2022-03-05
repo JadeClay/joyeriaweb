@@ -60,7 +60,7 @@ class SellController extends Controller
             $invoice->hasOrder = 1;
             $invoice->save();
 
-            return redirect(route('sell.index'));
+            return redirect(route('sell.index'))->with('success', "La venta se ha generado con exito.");
         } else {
             $product = Product::find($request->product_id);
             $actualStock = $product->stock;
@@ -83,7 +83,7 @@ class SellController extends Controller
             $invoice->hasOrder = 0;
             $invoice->save();
 
-            return redirect(route('sell.index'));
+            return redirect(route('sell.index'))->with('success', "La venta se ha generado con exito.");
         }
         
     }

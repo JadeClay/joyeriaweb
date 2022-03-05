@@ -37,7 +37,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = Product::create($request->except('_token'));
-        return redirect(route('product.index'));
+        return redirect(route('product.index'))->with('success', "El producto ha sido creado con exito.");
     }
 
     /**
@@ -74,7 +74,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id); // If finds it, proceed the execution. If doesn't finds it, it fails.
 
         $product->update($request->except('_token'));
-        return redirect(route('product.index'));
+        return redirect(route('product.index'))->with('success', "El producto ha sido modificado con exito.");
     }
 
     /**
@@ -86,6 +86,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $success = Product::destroy($id);
-        return redirect(route('product.index'));
+        return redirect(route('product.index'))->with('success', "El producto ha sido eliminado con exito.");
     }
 }

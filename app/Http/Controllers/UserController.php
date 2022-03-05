@@ -40,7 +40,7 @@ class UserController extends Controller
     {
         $user = User::create($request->except('_token'));
 
-        return redirect(route('user.index'));
+        return redirect(route('user.index'))->with('success', "El usuario ha sido creado con exito.");
     }
 
     /**
@@ -77,7 +77,7 @@ class UserController extends Controller
         $user = User::findOrFail($id); // If finds it, proceed the execution. If doesn't finds it, it fails.
 
         $user->update($request->except('_token'));
-        return redirect(route('user.index'));
+        return redirect(route('user.index'))->with('success', "El usuario ha sido modificado con exito.");;
     }
 
     /**
@@ -89,6 +89,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $success = User::destroy($id);
-        return redirect(route('user.index'));
+        return redirect(route('user.index'))->with('success', "El usuario ha sido eliminado.");;
     }
 }

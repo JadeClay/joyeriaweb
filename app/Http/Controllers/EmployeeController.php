@@ -47,7 +47,7 @@ class EmployeeController extends Controller
             $user->save();
         }
         
-        return redirect(route('employee.index'));
+        return redirect(route('employee.index'))->with('success', "El empleado ha sido creado con exito.");
     }
 
     /**
@@ -84,7 +84,7 @@ class EmployeeController extends Controller
         $employee = Employee::findOrFail($id); // If finds it, proceed the execution. If doesn't finds it, it fails.
 
         $employee->update($request->except('_token'));
-        return redirect(route('employee.index'));
+        return redirect(route('employee.index'))->with('success', "El empleado ha sido modificado con exito.");
     }
 
     /**
@@ -96,6 +96,6 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         $success = Employee::destroy($id);
-        return redirect(route('employee.index'));
+        return redirect(route('employee.index'))->with('success', "El empleado ha sido eliminado con exito.");
     }
 }

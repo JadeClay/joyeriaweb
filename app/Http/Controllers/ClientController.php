@@ -36,7 +36,7 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $client = Client::create($request->except('_token'));
-        return redirect(route('client.index'));
+        return redirect(route('client.index'))->with('success', "El cliente ha sido creado con exito.");
     }
 
     /**
@@ -74,7 +74,7 @@ class ClientController extends Controller
         $client = Client::findOrFail($id); // If finds it, proceed the execution. If doesn't finds it, it fails.
 
         $client->update($request->except('_token'));
-        return redirect(route('client.index'));
+        return redirect(route('client.index'))->with('success', "El cliente ha sido modificado con exito.");
     }
 
     /**
@@ -86,6 +86,6 @@ class ClientController extends Controller
     public function destroy($id)
     {
         $success = Client::destroy($id);
-        return redirect(route('client.index'));
+        return redirect(route('client.index'))->with('success', "El cliente ha sido eliminado con exito.");
     }
 }

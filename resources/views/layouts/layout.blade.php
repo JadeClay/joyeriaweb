@@ -68,5 +68,29 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/index.js') }}" defer></script>
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+
+    <!-- Alerts Code -->
+    @if (session()->has('success'))
+        <script>
+            window.onload = Swal.fire({
+                title: 'Éxito!',
+                text: '{{ session("success") }}',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+            })
+        </script>
+    @endif
+
+    @if (session()->has('error'))
+        <script>
+            window.onload = Swal.fire({
+                title: 'Error!',
+                text: '{{ session("error") }}',
+                icon: 'Error',
+                confirmButtonText: 'Cool'
+            })
+        </script>
+    @endif
 </body>
 </html>
