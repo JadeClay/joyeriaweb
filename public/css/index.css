@@ -1,9 +1,14 @@
-.styled-table {
-    border-collapse: collapse;
+div.table-container {
+    width: 80vw;
+    overflow-x: auto;
     margin: 0 auto 7vh;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
     font-size: 0.9em;
     font-family: sans-serif;
-    width: 80%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     min-height: 50vh;
 }
