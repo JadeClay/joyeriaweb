@@ -19,6 +19,18 @@ class CreateJobsTable extends Migration
             $table->BigInteger('salary');
             $table->timestamps();
         });
+
+        // Insert some stuff
+        DB::table('jobs')->insert(
+            array(
+                ['name' => 'Gerente General', 'salary' => 200000],
+                ['name' => 'Gerente Sucursal', 'salary' => 80000],
+                ['name' => 'Contable', 'salary' => 30000],
+                ['name' => 'Vendedor', 'salary' => 30000],
+                ['name' => 'Mensajero', 'salary' => 13000],
+                ['name' => 'Seguridad', 'salary' => 10000],
+            )
+        );
     }
 
     /**

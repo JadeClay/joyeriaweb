@@ -19,6 +19,16 @@ class CreateShopsTable extends Migration
             $table->BigInteger('cellphone');
             $table->timestamps();
         });
+
+        // Insert some stuff
+        DB::table('shops')->insert(
+            array(
+                ['direction' => 'Santo Domingo', 'cellphone' => 8099188989],
+                ['direction' => 'Santiago', 'cellphone' => 8099188989],
+                ['direction' => 'Punta Cana', 'cellphone' => 8099188989],
+                ['direction' => 'Puerto Plata', 'cellphone' => 8099188989],
+            )
+        );
     }
 
     /**
