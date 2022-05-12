@@ -163,7 +163,7 @@
                     <option value="0">Selecciona:</option>
                     @foreach ($products as $product)
                         @if ($product->stock > 0)
-                            <option value="{{ $product->id }}">{{ $product->name }}</option>
+                            <option value="{{ $product->id }}">{{ $product->name }}, S:{{ $product->size }}, {{ $product->color }}</option>
                         @endif
                     @endforeach
                 </select>

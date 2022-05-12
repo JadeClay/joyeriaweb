@@ -61,11 +61,23 @@ body {
     color: rgb(235, 232, 232);
   }
 
-  .form-structor .form-content input:not(.form-check-input), .form-structor .form-content select {
+  .form-structor .form-content input:not(.form-check-input) {
     border: 0;
     border-left: 4px solid #3c6e71;
     padding: 0.6vw;
-    width: 84%;
+    width: 100%;
+
+  }
+
+  .form-structor .form-content select {
+    border: 0;
+    border-left: 4px solid #3c6e71;
+    padding: 0.6vw;
+    min-width: 110%;
+  }
+
+  .form-structor .form-content select:focus {
+    width: auto;
   }
   
   .form-structor .form-content div {
@@ -97,7 +109,12 @@ body {
 
   /* APPLYING MEDIA QUERIES */
 @media (max-width: 768px) {
+
     .form-structor .form-content select, .form-structor .form-content input {
       width: auto;
+    }
+
+    .form-structor .form-content select {
+      max-width: 100%;
     }
 }

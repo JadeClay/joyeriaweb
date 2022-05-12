@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="center">
-    <form method="POST" action="{{ route('user.store') }}" class="form-structor">
+    <form method="POST" action="{{ route('user.store') }}" class="form-structor user">
         <div class="form-title">
             <p><span class="inline-icon material-icons">people</span><br> Usuarios</p>
         </div>

@@ -1,5 +1,9 @@
 @import url(forms.css);
 
+.form-structor.user {
+  height: 70vh;
+}
+
 .form-structor.employee {
   height: 110vh;
 }
@@ -24,5 +28,29 @@
 @media (max-width: 768px) {
   .center {
     flex-direction: column;
+  }
+
+  .form-structor.order {
+    height: 96vh;
+  }
+
+  .form-structor.existent-product {
+    height: 56vh;
+  }
+
+  .form-structor.client {
+    height: 60vh;
+  }
+  
+  .form-structor.product {
+    height: 60vh;
+  }
+
+  .form-structor.employee {
+    height: 75vh;
+  }
+
+  .form-structor.user {
+    height: 50vh;
   }
 }
