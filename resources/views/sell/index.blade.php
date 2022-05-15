@@ -10,6 +10,12 @@
 @section('content')
 
 <div class="table-container">
+    <form class="example" action="{{ route('invoice.search') }}" method="post">
+        @csrf
+        @method('get')
+        <input type="text" placeholder="Buscar empleado..." name="search">
+        <button type="submit"><span class="inline-icon material-icons">search</span></button>
+    </form>
     <table class="styled-table">
         <thead>
             <tr>
