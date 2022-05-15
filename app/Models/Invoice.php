@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'amount',
@@ -27,7 +28,7 @@ class Invoice extends Model
      */
     public function searchableAs()
     {
-        return 'clients_index';
+        return 'invoices_index';
     }
 
     /**

@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    use Searchable;
-    use HasFactory;
+    use HasFactory, Searchable;
     
     protected $fillable = [
         'name',

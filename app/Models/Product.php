@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'name',
@@ -24,7 +25,7 @@ class Product extends Model
      */
     public function searchableAs()
     {
-        return 'clients_index';
+        return 'products_index';
     }
 
     /**

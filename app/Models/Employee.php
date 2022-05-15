@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
     /**
      * The attributes that are mass assignable.
      *
@@ -30,7 +31,7 @@ class Employee extends Model
      */
     public function searchableAs()
     {
-        return 'clients_index';
+        return 'employees_index';
     }
 
     /**
