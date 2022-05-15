@@ -31,15 +31,15 @@
   }
 
   .form-structor.order {
-    height: 96vh;
+    height: 100vh;
   }
 
   .form-structor.existent-product {
-    height: 56vh;
+    height: 58vh;
   }
 
   .form-structor.client {
-    height: 60vh;
+    height: 65vh;
   }
   
   .form-structor.product {
@@ -47,11 +47,11 @@
   }
 
   .form-structor.employee {
-    height: 75vh;
+    height: 78vh;
   }
 
   .form-structor.user {
-    height: 50vh;
+    height: 52vh;
   }
 
   form.example input[type=text] {

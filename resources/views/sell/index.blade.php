@@ -13,13 +13,14 @@
     <form class="example" action="{{ route('invoice.search') }}" method="post">
         @csrf
         @method('get')
-        <input type="text" placeholder="Buscar empleado..." name="search">
+        <input type="text" placeholder="Buscar factura..." name="search">
         <button type="submit"><span class="inline-icon material-icons">search</span></button>
     </form>
     <table class="styled-table">
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Factura</th>
                 <th>Monto</th>
                 <th>ITBIS (18%)</th>
                 <th>Subtotal</th>
@@ -36,6 +37,7 @@
             @foreach($invoices as $invoice)
                 <tr>
                     <td><strong>{{ $invoice->id }}</strong></td>
+                    <td><a href="{{ route('invoice.show', $invoice->id) }}">Imprimir</a></td>
                     <td>RD${{ $invoice->amount }}</td>
                     <td>RD${{ $invoice->itbis }}</td>
                     <td>RD${{ $invoice->subtotal }}</td>
@@ -43,7 +45,7 @@
                     <td>
                         <?php 
                             $id = $invoice->client_id;
-                            $name = $clients->find($id)->name . ", " . $clients->find($id)->surname;
+                            $name = $clients->find($id)->name . " " . $clients->find($id)->surname;
                             echo $name;
                         ?>
                     </td>

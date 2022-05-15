@@ -54,6 +54,10 @@ Route::get('/invoice/search', function (Request $request) {
     return view('sell.index',["invoices"=>$results, "clients"=>Client::all(), "products"=>Product::all(), "orders"=>Order::all(), "users" =>User::all()]);
 })->name('invoice.search');
 
+Route::get('/invoice/show/{id}', function ($id) {
+    return view('sell.invoice',["invoice"=>Invoice::find($id),"products"=>Product::all(),"orders"=>Order::all()]);
+})->name('invoice.show');
+
 Route::resource('user', UserController::class);
 
 Route::resource('employee', EmployeeController::class);
