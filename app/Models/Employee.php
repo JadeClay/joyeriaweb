@@ -22,4 +22,28 @@ class Employee extends Model
         'job_id',
         'shop_id',
     ];
+
+    /**
+     * Get the index name for the model.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'clients_index';
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+ 
+        // Customize array...
+ 
+        return $array;
+    }
 }

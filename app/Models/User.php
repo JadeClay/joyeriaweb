@@ -46,4 +46,38 @@ class User extends Authenticatable
     public function setPasswordAttribute($password){
         $this->attributes['password'] = Hash::make($password);
     }
+
+    /**
+     * Get the index name for the model.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'clients_index';
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+ 
+        // Customize array...
+ 
+        return $array;
+    }
+
+    /**
+     * Get the value used to index the model.
+     *
+     * @return mixed
+     */
+    public function getScoutKey()
+    {
+        return $this->email;
+    }
 }

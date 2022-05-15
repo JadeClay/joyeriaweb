@@ -26,7 +26,7 @@ class Client extends Model
      */
     public function searchableAs()
     {
-        return 'posts_index';
+        return 'clients_index';
     }
 
     /**
