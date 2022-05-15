@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -22,6 +23,10 @@ use App\Http\Controllers\ProductController;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/client/search', function (Request $request) {
+    return App\Models\Client::search($request->search)->get();
+})->name('client.search');
 
 Route::resource('user', UserController::class);
 

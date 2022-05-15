@@ -59,8 +59,8 @@
                 <p>&copy 2021 - Oscar Piña y Arturo Rodríguez</p>
             </div>
             <div class="social">
-                <a href="#" class="support">Soporte técnico</a>
-                <a href="#" class="face">f</a>
+                <a href="mailto:oscaralbertopinap@gmail.com" class="support">Soporte técnico</a>
+                <a href="https://www.facebook.com/JoyeriaBrador/" class="face">f</a>
             </div>
         </footer>
 

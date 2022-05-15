@@ -53,4 +53,12 @@
   .form-structor.user {
     height: 50vh;
   }
+
+  form.example input[type=text] {
+    width: 30%;
+  }
+
+  form.example button {
+    width: 10%;
+  }
 }
