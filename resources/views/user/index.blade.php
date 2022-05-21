@@ -28,7 +28,7 @@
                     <td><strong>{{ $user->id }}</strong></td>
                     <td>{{ $user->email }}</td>
                     <td>
-                        @if ($user->role === 1)
+                        @if ($user->role == 1)
                             Administrador
                         @else
                             Usuario
