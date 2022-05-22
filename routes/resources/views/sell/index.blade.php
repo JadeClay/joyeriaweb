@@ -13,17 +13,16 @@
     <form class="example" action="{{ route('invoice.search') }}" method="post">
         @csrf
         @method('get')
-        <input type="text" placeholder="Buscar factura (por la fecha)..." name="search">
+        <input type="text" placeholder="Buscar empleado..." name="search">
         <button type="submit"><span class="inline-icon material-icons">search</span></button>
     </form>
     <table class="styled-table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Factura</th>
-                <th>Subtotal</th>
+                <th>Monto</th>
                 <th>ITBIS (18%)</th>
-                <th>Total</th>
+                <th>Subtotal</th>
                 <th>Fecha</th>
                 <th>Cliente</th>
                 <th>Producto/Pedido</th>
@@ -37,7 +36,6 @@
             @foreach($invoices as $invoice)
                 <tr>
                     <td><strong>{{ $invoice->id }}</strong></td>
-                    <td><a href="{{ route('invoice.show', $invoice->id) }}">Imprimir</a></td>
                     <td>RD${{ $invoice->amount }}</td>
                     <td>RD${{ $invoice->itbis }}</td>
                     <td>RD${{ $invoice->subtotal }}</td>
@@ -45,7 +43,7 @@
                     <td>
                         <?php 
                             $id = $invoice->client_id;
-                            $name = $clients->find($id)->name . " " . $clients->find($id)->surname;
+                            $name = $clients->find($id)->name . ", " . $clients->find($id)->surname;
                             echo $name;
                         ?>
                     </td>
@@ -54,7 +52,7 @@
                             if($invoice->hasOrder){
                                 $id = $invoice->product_id;
                                 $name = $orders->find($id)->name;
-                                $link = "<a href=" . route('sell.show', $orders->find($id)) . ">[PEDIDO] </a>";
+                                $link = "<a href=" . route('sell.show', $invoice->id) . ">[PEDIDO] </a>";
                                 echo $link . $name;
                             } else {
                                 $id = $invoice->product_id;

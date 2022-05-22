@@ -17,13 +17,14 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('stock');
-            $table->integer('initial');
+            $table->integer('paid');
             $table->integer('size');
             $table->string('color');
             $table->string('type');
             $table->string('details');
             $table->date('deliveryDate');
             $table->unsignedBigInteger('client_id');
+            $table->integer('is_paid');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();
         });

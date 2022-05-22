@@ -23,7 +23,7 @@
                 <select name="client_id" id="client_id">
                     <option value="0">Selecciona:</option>
                     @foreach ($clients as $client)
-                        <option value="{{ $client->id }}">{{ $client->name }} {{ $client->surname }}</option>
+                        <option value="{{ $client->id }}">{{ $client->name }}, {{ $client->surname }}</option>
                     @endforeach
                 </select>
                 <br>
@@ -36,7 +36,7 @@
             <div>
                 <label for="name">Nombre del Pedido</label>
                 <br>
-                <input id="name" type="text" name="name" value="{{ old('name') }}" required placeholder="Inserte nombre del o los productos pedidos...">
+                <input id="name" type="text" name="name" value="{{ old('name') }}" required>
                 <br>
                 @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
             <div>
                 <label for="stock">Cantidad pedida</label>
                 <br>
-                <input id="stock" type="number" name="stock" required placeholder="Inserte cantidad de los productos a encargar...">
+                <input id="stock" type="number" name="stock" required>
                 <br>
                 @error('stock')
                     <span class="invalid-feedback" role="alert">
@@ -56,11 +56,11 @@
                 @enderror
             </div>
             <div>
-                <label for="paid">Pago Inicial</label>
+                <label for="initial">Pago Inicial</label>
                 <br>
-                <input id="paid" type="number" name="paid" required placeholder="Inserte monto pagado como inicial...">
+                <input id="initial" type="number" name="initial" required>
                 <br>
-                @error('paid')
+                @error('initial')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -69,7 +69,7 @@
             <div>
                 <label for="amount">Total a Pagar</label>
                 <br>
-                <input id="amount" type="number" name="amount" required placeholder="Inserte monto total acordado a pagar...">
+                <input id="amount" type="number" name="amount" required>
                 <br>
                 @error('amount')
                     <span class="invalid-feedback" role="alert">
@@ -80,7 +80,7 @@
             <div>
                 <label for="size">Size del Pedido</label>
                 <br>
-                <input id="size" type="number" name="size" required placeholder="Inserte size de los productos pedidos...">
+                <input id="size" type="number" name="size" required>
                 <br>
                 @error('size')
                     <span class="invalid-feedback" role="alert">
@@ -91,7 +91,7 @@
             <div>
                 <label for="color">Color</label>
                 <br>
-                <input id="color" type="text" name="color" required placeholder="Inserte color o colores del pedido...">
+                <input id="color" type="text" name="color" required>
                 <br>
                 @error('color')
                     <span class="invalid-feedback" role="alert">
@@ -102,7 +102,7 @@
             <div>
                 <label for="type">Tipo</label>
                 <br>
-                <input id="type" type="text" name="type" required placeholder="Ej: Boda, Universitario, Compromiso, etc...">
+                <input id="type" type="text" name="type" required>
                 <br>
                 @error('type')
                     <span class="invalid-feedback" role="alert">
@@ -113,7 +113,7 @@
             <div>
                 <label for="details">Detalles</label>
                 <br>
-                <input id="details" type="text" name="details" required placeholder="Inserte detalles a tomar en cuenta con el pedido...">
+                <input id="details" type="text" name="details" required>
                 <br>
                 @error('details')
                     <span class="invalid-feedback" role="alert">
@@ -122,7 +122,7 @@
                 @enderror
             </div>
             <div>
-                <label for="deliveryDate">Fecha de Entrega Estimada</label>
+                <label for="deliveryDate">Fecha de Entrega</label>
                 <br>
                 <input id="deliveryDate" type="date" name="deliveryDate" required>
                 <br>
@@ -180,7 +180,7 @@
                 <select name="client_id" id="client_id">
                     <option value="0">Selecciona:</option>
                     @foreach ($clients as $client)
-                        <option value="{{ $client->id }}">{{ $client->name }} {{ $client->surname }}</option>
+                        <option value="{{ $client->id }}">{{ $client->name }}, {{ $client->surname }}</option>
                     @endforeach
                 </select>
                 <br>
