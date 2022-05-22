@@ -8,73 +8,74 @@
 
 @section('content')
 <div class="center">
-    <form method="POST" action="{{ route('user.store') }}" class="form-structor user">
-        <div class="form-title">
-            <p><span class="inline-icon material-icons">people</span><br> Usuarios</p>
-        </div>
-                
-        <div class="form-content">
-            @csrf
+    
+        <form method="POST" action="{{ route('user.store') }}" class="form-structor user">
+            <div class="form-title">
+                <p><span class="inline-icon material-icons">people</span><br> Usuarios</p>
+            </div>
                     
-            <div>
-                <label for="email">{{ __('Correo Electrónico') }}</label>
-                <br>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
-                <br>
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div>
-                <label for="password">{{ __('Contraseña') }}</label>
-                <br>
-                <input id="password" type="password" name="password" required autocomplete="new-password">
-                <br>
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div>
-                <label for="password-confirm">{{ __('Confirmar contraseña') }}</label>
-                <br>
-                <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
-                <br>
-            </div>
-            <div>
-                <input class="form-check-input" type="checkbox" value="1" id="role" name="role" @if (Auth::user()->role == 0)
-                    disabled
-                @endif>
-                <label class="form-check-label" for="flexCheckDefault">
-                    Admin
-                </label>
+            <div class="form-content">
+                @csrf
+                        
+                <div>
+                    <label for="email">{{ __('Correo Electrónico') }}</label>
+                    <br>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    <br>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div>
+                    <label for="password">{{ __('Contraseña') }}</label>
+                    <br>
+                    <input id="password" type="password" name="password" required autocomplete="new-password">
+                    <br>
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div>
+                    <label for="password-confirm">{{ __('Confirmar contraseña') }}</label>
+                    <br>
+                    <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
+                    <br>
+                </div>
+                <div>
+                    <input class="form-check-input" type="checkbox" value="1" id="role" name="role" @if (Auth::user()->role == 0)
+                        disabled
+                    @endif>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Admin
+                    </label>
 
-                <input class="form-check-input" type="checkbox" value="0" id="role" name="role">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Usuario
-                </label>
-                @error('role')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                    <input class="form-check-input" type="checkbox" value="0" id="role" name="role">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Usuario
+                    </label>
+                    @error('role')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-submit">
+                        {{ __('Crear usuario') }}
+                    </button>
+
+                    <a class="btn btn-index" href="{{ route('user.index') }}">
+                        {{ __('Revisar usuarios') }}
+                    </a>
+                </div>
             </div>
 
-            <div class="form-actions">
-                <button type="submit" class="btn btn-submit">
-                    {{ __('Crear usuario') }}
-                </button>
-
-                <a class="btn btn-index" href="{{ route('user.index') }}">
-                    {{ __('Revisar usuarios') }}
-                </a>
-            </div>
-        </div>
-
-    </form>
+        </form>  
 
     <form method="POST" action="{{ route('employee.store') }}" class="form-structor employee">
         <div class="form-title">

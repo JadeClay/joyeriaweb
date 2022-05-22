@@ -16,7 +16,8 @@
                 
         <div class="form-content">
             @csrf
-                    
+
+            <input id="user_id" type="hidden" value="{{ $employee->user_id }}">        
             <div>
                 <label for="name">{{ __('Nombre') }}</label>
                 <br>
@@ -62,28 +63,12 @@
                 @enderror
             </div>
             <div>
-                <label for="user_id">{{ __('Usuario') }}</label>
-                <br>
-                <select name="user_id" id="user_id">
-                    <option value="0">Selecciona:</option>
-                    @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->email }}</option>
-                    @endforeach
-                </select>
-                <br>
-                @error('user_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div>
                 <label for="job_id">{{ __('Cargo') }}</label>
                 <br>
                 <select name="job_id" id="job_id">
                     <option value="0">Selecciona:</option>
                     @foreach ($jobs as $job)
-                        <option value="{{ $job->id }}">{{ $job->name }}</option>
+                        <option value="{{ $job->id }}" @if ($job->id == $employee->job_id) selected @endif>{{ $job->name }}</option>
                     @endforeach
                 </select>
                 <br>
@@ -99,7 +84,7 @@
                 <select name="shop_id" id="shop_id">
                     <option value="0">Selecciona:</option>
                     @foreach ($shops as $shop)
-                        <option value="{{ $shop->id }}">{{ $shop->direction }}</option>
+                        <option value="{{ $shop->id }}" @if ($shop->id == $employee->shop_id) selected @endif>{{ $shop->direction }}</option>
                     @endforeach
                 </select>
                 <br>

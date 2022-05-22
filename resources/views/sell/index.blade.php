@@ -13,7 +13,7 @@
     <form class="example" action="{{ route('invoice.search') }}" method="post">
         @csrf
         @method('get')
-        <input type="text" placeholder="Buscar factura..." name="search">
+        <input type="text" placeholder="Buscar factura (por la fecha)..." name="search">
         <button type="submit"><span class="inline-icon material-icons">search</span></button>
     </form>
     <table class="styled-table">
@@ -54,7 +54,7 @@
                             if($invoice->hasOrder){
                                 $id = $invoice->product_id;
                                 $name = $orders->find($id)->name;
-                                $link = "<a href=" . route('sell.show', $invoice->id) . ">[PEDIDO] </a>";
+                                $link = "<a href=" . route('sell.show', $orders->find($id)) . ">[PEDIDO] </a>";
                                 echo $link . $name;
                             } else {
                                 $id = $invoice->product_id;

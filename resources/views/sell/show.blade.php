@@ -15,12 +15,10 @@
                 
         <div class="form-content">
             @csrf
-            <input type="hidden" name="invoiceType" value="1">
-            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">   
             <div>
                 <label for="client_id">Cliente</label>
                 <br>
-                <input id="client_id" type="text" name="client_id" value="{{ $clients->find($order->client_id)->name }}, {{ $clients->find($order->client_id)->surname }}" disabled style="background-color: #ffff">
+                <input id="client_id" type="text" name="client_id" value="{{ $clients->find($order->client_id)->name }} {{ $clients->find($order->client_id)->surname }}" disabled style="background-color: #ffff">
             </div>
             <div>
                 <label for="name">Nombre del Pedido</label>

@@ -13,7 +13,7 @@
     <form class="example" action="{{ route('employee.search') }}" method="post">
         @csrf
         @method('get')
-        <input type="text" placeholder="Buscar empleado..." name="search">
+        <input type="text" placeholder="Buscar empleado (por nombre, apellido, cédula o dirección)..." name="search">
         <button type="submit"><span class="inline-icon material-icons">search</span></button>
     </form>
     <table class="styled-table">
@@ -27,7 +27,9 @@
                 <th>Direccion</th>
                 <th>Cargo</th>
                 <th>Sucursal</th>
-                <th>Acciones</th>
+                @if (Auth::user()->role == 1)
+                    <th>Acciones</th>
+                @endif 
             </tr>
         </thead>
         <tbody>
@@ -57,6 +59,7 @@
                             $shops->find($employee->shop_id)->direction
                         }}
                     </td>
+                    @if (Auth::user()->role == 1)
                     <td>
                         <form action="{{ route('employee.destroy', $employee->id) }}" method="post">
                             @csrf
@@ -74,6 +77,7 @@
                             </span>
                         </a>
                     </td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>

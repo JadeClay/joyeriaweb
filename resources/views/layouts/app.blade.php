@@ -30,34 +30,38 @@
     <div id="app">
     <div class="container-body">
         <nav class="nav-menu">
+            <ul>
                 <li class="logo"><a href="">Joyerias Brador</a></li>
+            </ul>
                 <div class="menu">
-                <li class="hvr-underline-from-center"><a href="/"><span class="inline-icon material-icons">home</span> Inicio</a></li>
-                    <li class="hvr-underline-from-center"><a href="/users"><span class="inline-icon material-icons">people</span> Usuarios</a></li>
-                    <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
-                    <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">sell</span> Ventas</a></li>
-                    <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">percent</span> Productos</a></li>
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="login">
-                                <a  href="{{ route('login') }}">
-                                    <span class="inline-icon material-icons">logout</span> {{ __('Login') }}
+                    <ul>
+                        <li class="hvr-underline-from-center"><a href="/"><span class="inline-icon material-icons">home</span> Inicio</a></li>
+                        <li class="hvr-underline-from-center"><a href="/users"><span class="inline-icon material-icons">people</span> Usuarios</a></li>
+                        <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
+                        <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">sell</span> Ventas</a></li>
+                        <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">percent</span> Productos</a></li>
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="login">
+                                    <a  href="{{ route('login') }}">
+                                        <span class="inline-icon material-icons">logout</span> {{ __('Login') }}
+                                    </a>
+                                </li>
+                            @endif
+                        @endguest
+                        
+                        @auth
+                            <li class="logout hvr-underline-from-center">
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <span class="inline-icon material-icons">logout</span> {{ __('Logout') }}
                                 </a>
-                            </li>
-                        @endif
-                    @endguest
-                    
-                    @auth
-                        <li class="logout hvr-underline-from-center">
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <span class="inline-icon material-icons">logout</span> {{ __('Logout') }}
-                            </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
-                    @endauth
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        @endauth
+                    </ul>
                 </div>
                 <div class="hamburger">
                     <span class="bar"></span>

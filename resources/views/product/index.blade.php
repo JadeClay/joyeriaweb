@@ -13,7 +13,7 @@
     <form class="example" action="{{ route('product.search') }}" method="post">
         @csrf
         @method('get')
-        <input type="text" placeholder="Buscar producto" name="search">
+        <input type="text" placeholder="Buscar producto (por nombre, stock, size, color o material)..." name="search">
         <button type="submit"><span class="inline-icon material-icons">search</span></button>
     </form>
     <table class="styled-table">
