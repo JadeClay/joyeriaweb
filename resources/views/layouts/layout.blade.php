@@ -26,7 +26,6 @@
                     <li class="hvr-underline-from-center"><a href="{{ route('sell.create') }}"><span class="inline-icon material-icons">sell</span> Ventas</a></li>
                     <li class="hvr-underline-from-center"><a href="{{ route('payment.create') }}"><span class="inline-icon material-icons">payments</span> Pagos</a></li>
                     <li class="hvr-underline-from-center"><a href="{{ route('product.create') }}"><span class="inline-icon material-icons">percent</span> Productos</a></li>
-                    <li class="hvr-underline-from-center"><a href="{{ route('product.create') }}"><span class="inline-icon material-icons">percent</span> Pagos</a></li>
                     @guest
                         @if (Route::has('login'))
                             <li class="login">

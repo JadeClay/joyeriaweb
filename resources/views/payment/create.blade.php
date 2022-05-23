@@ -1,4 +1,6 @@
-push('styles')
+@extends('layouts.layout')
+
+@push('styles')
 
     <link rel="stylesheet" href="{{ URL::asset('css/users.css') }}" />
 
@@ -6,73 +8,42 @@ push('styles')
 
 @section('content')
 <div class="center">
-<form method="POST" action="{{ route('product.store') }}" class="form-structor product">
+    <form method="POST" action="{{ route('payment.do') }}" class="form-structor payment" style="height: 52vh;">
         <div class="form-title">
-            <p><span class="inline-icon material-icons">percent</span><br> Pagos</p>
+            <p><span class="inline-icon material-icons">payments</span><br> Pagos</p>
         </div>
                 
         <div class="form-content">
-            @csrf
-                    
+            @csrf  
             <div>
-                <label for="name">{{ __('Nombre') }}</label>
+                <label for="id">Seleccionar pedido</label>
                 <br>
-                <input id="name" type="text" name="name" required autocomplete="name" autofocus>
+                <select name="id" id="id">
+                    <option value="0">Selecciona:</option>
+                    @foreach ($orders as $order)
+                        @if ($order->is_paid == 0)
+                            <option value="{{ $order->id }}">{{ $order->name }} {{ $clients->find($order->client_id)->name }} {{ $clients->find($order->client_id)->surname }}</option>
+                        @endif
+                    @endforeach
+                </select>
                 <br>
-                @error('name')
+                @error('id')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
             <div>
-                <label for="stock">{{ __('Apellido') }}</label>
+                <label for="paid">Monto a pagar</label>
                 <br>
-                <input id="stock" type="text" name="stock" required autocomplete="stock" autofocus>
+                <input id="paid" type="number" name="paid" required placeholder="Inserte monto abonado">
                 <br>
-                @error('stock')
+                @error('paid')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
-            <div>
-                <label for="size">{{ __('Motivo') }}</label>
-                <br>
-                <input id="size" type="text" name="size"  required autocomplete="size">
-                <br>
-                @error('size')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div>
-                <label for="color">{{ __('Numero de cuenta') }}</label>
-                <br>
-                <input id="color" type="text" name="color" required autocomplete="color">
-                <br>
-                @error('color')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-submit">
-                    {{ __('Crear') }}
-                </button>
-
-                <a class="btn btn-index" href="{{ route('product.index') }}">
-                    {{ __('Revisar pagos') }}
-                </a>
-            </div>
-        </div>
-
-    </form>
-
-</div>
-@endsection
             
 
             <div class="form-actions">
