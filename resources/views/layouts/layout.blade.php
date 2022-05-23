@@ -24,6 +24,7 @@
                     @if (Auth::user()->role == 1)<li class="hvr-underline-from-center"><a href="{{ route('user.create') }}"><span class="inline-icon material-icons">people</span> Usuarios</a></li>@endif
                     <li class="hvr-underline-from-center"><a href="{{ route('client.create') }}"><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
                     <li class="hvr-underline-from-center"><a href="{{ route('sell.create') }}"><span class="inline-icon material-icons">sell</span> Ventas</a></li>
+                    <li class="hvr-underline-from-center"><a href="{{ route('payment.create') }}"><span class="inline-icon material-icons">payments</span> Pagos</a></li>
                     <li class="hvr-underline-from-center"><a href="{{ route('product.create') }}"><span class="inline-icon material-icons">percent</span> Productos</a></li>
                     <li class="hvr-underline-from-center"><a href="{{ route('product.create') }}"><span class="inline-icon material-icons">percent</span> Pagos</a></li>
                     @guest

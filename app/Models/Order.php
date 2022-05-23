@@ -12,13 +12,14 @@ class Order extends Model
     protected $fillable = [
         'name',
         'stock',
-        'initial',
+        'paid',
         'size',
         'color',
         'type',
         'details',
         'deliveryDate',
         'client_id',
+        'is_paid',
     ];
 
 }

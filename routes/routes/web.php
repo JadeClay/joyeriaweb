@@ -54,28 +54,6 @@ Route::get('/invoice/search', function (Request $request) {
     return view('sell.index',["invoices"=>$results, "clients"=>Client::all(), "products"=>Product::all(), "orders"=>Order::all(), "users" =>User::all()]);
 })->name('invoice.search');
 
-Route::get('/invoice/show/{id}', function ($id) {
-    return view('sell.invoice',["invoice"=>Invoice::find($id),"products"=>Product::all(),"orders"=>Order::all()]);
-})->name('invoice.show');
-
-Route::get('/payment/create', function (){
-    return view('payment.create',["orders"=>Order::all(), "clients"=>Client::all()]);
-})->name('payment.create');
-
-Route::post('/payment/do', function (Request $request){
-    $order = Order::find($request->id);
-    $invoice = Invoice::where('product_id', '=', $order->id)->first();
-
-    $order->paid += $request->paid;
-    if($invoice->subtotal <= $order->paid){
-        $order->is_paid = 1;
-    }
-
-    $order->save();
-
-    return redirect(route('payment.create'))->with('success', "El pago se ha generado con éxito.");
-})->name('payment.do');
-
 Route::resource('user', UserController::class);
 
 Route::resource('employee', EmployeeController::class);
@@ -87,3 +65,9 @@ Route::resource('client', ClientController::class);
 Route::resource('product', ProductController::class);
 
 Auth::routes();
+
+/* Search routes */
+
+
+
+
