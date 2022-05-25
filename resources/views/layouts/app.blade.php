@@ -36,7 +36,7 @@
                 <div class="menu">
                     <ul>
                         <li class="hvr-underline-from-center"><a href="/"><span class="inline-icon material-icons">home</span> Inicio</a></li>
-                        <li class="hvr-underline-from-center"><a href="/users"><span class="inline-icon material-icons">people</span> Usuarios</a></li>
+                        <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">people</span> Usuarios</a></li>
                         <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
                         <li class="hvr-underline-from-center"><a href=""><span class="inline-icon material-icons">sell</span> Ventas</a></li>
                         <li class="hvr-underline-from-center"><a href="{{ route('payment.create') }}"><span class="inline-icon material-icons">payments</span> Pagos</a></li>
@@ -73,7 +73,9 @@
             </nav>
 
         <main>
+            
             @yield('content')
+
         </main>
 
         <script src="{{ asset('js/index.js') }}"></script>

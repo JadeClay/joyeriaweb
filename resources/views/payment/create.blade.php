@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="center">
-    <form method="POST" action="{{ route('payment.do') }}" class="form-structor payment" style="height: 52vh;">
+    <form method="POST" action="{{ route('payment.do') }}" class="form-structor payment">
         <div class="form-title">
             <p><span class="inline-icon material-icons">payments</span><br> Pagos</p>
         </div>

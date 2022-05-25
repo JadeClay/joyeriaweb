@@ -25,7 +25,12 @@
 }
 
 .form-structor.payment {
-  height: 22vh !important;
+  height: 40vh;
+}
+
+.form-structor.login {
+  height: 50vh;
+  margin-bottom: 10vh;
 }
 
 /* APPLYING MEDIA QUERIES */
@@ -59,7 +64,7 @@
   }
 
   .form-structor.payment {
-    height: 22vh !important;
+    height: 65vh !important;
   }
 
   form.example input[type=text] {
