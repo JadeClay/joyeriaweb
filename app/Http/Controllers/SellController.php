@@ -96,7 +96,7 @@ class SellController extends Controller
      */
     public function show($id)
     {
-        return view('sell.show', ['order' => Order::find($id), 'clients' => Client::all(), 'invoices' => Invoice::all()]);
+        return view('sell.show', ['order' => Order::find($id), 'clients' => Client::all(), 'invoice' => Invoice::where('product_id', '=', $id)->first()]);
     }
 
     /**

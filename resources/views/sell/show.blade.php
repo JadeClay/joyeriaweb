@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="center">
-    <form method="POST" action="{{ route('sell.store') }}" class="form-structor order" style="height: 119vh">
+    <form method="POST" action="{{ route('sell.store') }}" class="form-structor order" style="height: 130vh">
         <div class="form-title">
             <p><span class="inline-icon material-icons">note_add</span><br> Pedido</p>
         </div>
@@ -34,6 +34,11 @@
                 <label for="paid">Pagado hasta la fecha</label>
                 <br>
                 <input id="paid" type="number" name="paid" value="{{ $order->paid }}" disabled style="background-color: #ffff">
+            </div>
+            <div>
+                <label for="subtotal">Total del Pedido</label>
+                <br>
+                <input id="subtotal" type="number" name="subtotal" value="{{ $invoice->subtotal }}" disabled style="background-color: #ffff">
             </div>
             <div>
                 <label for="size">Size del Pedido</label>
