@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="center">
-    <form method="POST" action="{{ route('sell.store') }}" class="form-structor order" style="height: 130vh">
+    <form method="POST" action="{{ route('sell.store') }}" class="form-structor order" style="height: 140vh">
         <div class="form-title">
             <p><span class="inline-icon material-icons">note_add</span><br> Pedido</p>
         </div>

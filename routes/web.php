@@ -55,7 +55,7 @@ Route::get('/invoice/search', function (Request $request) {
 })->name('invoice.search');
 
 Route::get('/invoice/show/{id}', function ($id) {
-    return view('sell.invoice',["invoice"=>Invoice::find($id),"products"=>Product::all(),"orders"=>Order::all()]);
+    return view('sell.invoice',["invoice"=>Invoice::find($id),"products"=>Product::all(),"orders"=>Order::all(),"clients"=>Client::all()]);
 })->name('invoice.show');
 
 Route::get('/payment/create', function (){

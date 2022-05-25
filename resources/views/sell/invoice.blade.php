@@ -112,7 +112,7 @@
 
 								<td>
 									Factura #: {{ $invoice->id }}<br />
-									Realizada: {{ $invoice->date }}<br />
+									Fecha de Emisión: {{ $invoice->date }}<br />
 								</td>
 							</tr>
 						</table>
@@ -133,25 +133,12 @@
 								</td>
 
 								<td>
-									Soporte Técnico<br />
-									Oscar Piña<br />
-									info@brador.com
+									<strong>Cliente:</strong><br />
+									{{ $clients->find($invoice->client_id)->name }} {{ $clients->find($invoice->client_id)->surname }}<br />
 								</td>
 							</tr>
 						</table>
 					</td>
-				</tr>
-
-				<tr class="heading">
-					<td>Impuesto sobre Transacciones de Bienes y Servicios</td>
-
-					<td>(I2)</td>
-				</tr>
-
-				<tr class="details">
-					<td>18%</td>
-
-					<td>RD${{ $invoice->itbis }}</td>
 				</tr>
 
 				<tr class="heading">
@@ -179,10 +166,22 @@
 					<td>RD${{ $invoice->amount }}</td>
 				</tr>
 
-				<tr class="total">
-					<td></td>
+				<tr class="heading">
+					<td>Impuesto sobre Transacciones de Bienes y Servicios</td>
 
+					<td>(I2)</td>
+				</tr>
+
+				<tr class="details">
+					<td>18%</td>
+
+					<td>RD${{ $invoice->itbis }}</td>
+				</tr>
+
+				<tr class="total">
 					<td>Total: RD${{ $invoice->subtotal }}</td>
+
+					<td>Pago Inicial: RD${{ $orders->find($invoice->product_id)->initial }} <br /> Restante: RD${{ $invoice->subtotal - $orders->find($invoice->product_id)->initial }}</td>
 				</tr>
 			</table>
 		</div>

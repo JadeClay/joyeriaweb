@@ -80,7 +80,7 @@
             <div>
                 <label for="size">Size del Pedido</label>
                 <br>
-                <input id="size" type="number" name="size" required placeholder="Inserte size de los productos pedidos...">
+                <input id="size" type="text" name="size" required placeholder="Inserte size de los productos pedidos...">
                 <br>
                 @error('size')
                     <span class="invalid-feedback" role="alert">

@@ -42,8 +42,19 @@ class SellController extends Controller
     public function store(Request $request)
     {
         if ($request->invoiceType == 1) { // If the invoice is for an order
-            $order = Order::create($request->except('_token','amount','user_id','invoiceType'));
-
+            $order = new Order;
+            $order->name = $request->name; 
+            $order->stock = $request->stock;
+            $order->initial = $request->paid;
+            $order->paid = $request->paid;
+            $order->size = $request->size;
+            $order->color = $request->color;
+            $order->type = $request->type;
+            $order->details = $request->details;
+            $order->deliveryDate = $request->deliveryDate;
+            $order->client_id = $request->client_id;
+            $order->save();         
+            
             $amount = $request->amount;
             $itbis = round(($amount*18)/100, 0, PHP_ROUND_HALF_UP);
             $subtotal = $amount + $itbis;

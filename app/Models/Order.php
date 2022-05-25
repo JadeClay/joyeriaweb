@@ -12,6 +12,7 @@ class Order extends Model
     protected $fillable = [
         'name',
         'stock',
+        'initial',
         'paid',
         'size',
         'color',
@@ -19,7 +20,6 @@ class Order extends Model
         'details',
         'deliveryDate',
         'client_id',
-        'is_paid',
     ];
 
 }

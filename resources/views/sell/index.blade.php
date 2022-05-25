@@ -42,13 +42,7 @@
                     <td>RD${{ $invoice->itbis }}</td>
                     <td>RD${{ $invoice->subtotal }}</td>
                     <td>{{ $invoice->date }}</td>
-                    <td>
-                        <?php 
-                            $id = $invoice->client_id;
-                            $name = $clients->find($id)->name . " " . $clients->find($id)->surname;
-                            echo $name;
-                        ?>
-                    </td>
+                    <td>{{ $clients->find($invoice->client_id)->name }} {{ $clients->find($invoice->client_id)->surname }}</td>
                     <td>
                         <?php 
                             if($invoice->hasOrder){
