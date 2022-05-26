@@ -16,9 +16,9 @@
         <div class="form-content">
             @csrf  
             <div>
-                <label for="id">Seleccionar pedido</label>
+                <label for="order_id">Seleccionar pedido</label>
                 <br>
-                <select name="id" id="id">
+                <select name="order_id" id="order_id">
                     <option value="0">Selecciona:</option>
                     @foreach ($orders as $order)
                         @if ($order->is_paid == 0)
@@ -27,18 +27,18 @@
                     @endforeach
                 </select>
                 <br>
-                @error('id')
+                @error('order_id')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
             <div>
-                <label for="paid">Monto a pagar</label>
+                <label for="amount">Monto a pagar</label>
                 <br>
-                <input id="paid" type="number" name="paid" required placeholder="Inserte monto abonado">
+                <input id="amount" type="number" name="amount" required placeholder="Inserte monto abonado">
                 <br>
-                @error('paid')
+                @error('amount')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -50,6 +50,10 @@
                 <button type="submit" class="btn btn-submit">
                     {{ __('Facturar pedido') }}
                 </button>
+
+                <a class="btn btn-index" href="{{ route('payment.index') }}">
+                    {{ __('Revisar pagos') }}
+                </a>
             </div>
         </div>
 

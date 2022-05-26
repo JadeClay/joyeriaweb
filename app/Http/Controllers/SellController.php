@@ -71,14 +71,15 @@ class SellController extends Controller
             $invoice->hasOrder = 1;
             $invoice->save();
 
-            return redirect(route('sell.index'))->with('success', "La venta se ha generado con exito.");
+            return redirect(route('invoice.show', $invoice->id))->with('success', "La venta se ha generado con exito.");
         } else {
             $product = Product::find($request->product_id);
             $actualStock = $product->stock;
             $product->stock = $actualStock - $request->stock;
+            $amount = $product->price * $request->stock;
+
             $product->save();
-            
-            $amount = $request->amount;
+
             $itbis = round(($amount*18)/100, 0, PHP_ROUND_HALF_UP);
             $subtotal = $amount + $itbis;
             $date = date("Y-m-d");
@@ -94,7 +95,7 @@ class SellController extends Controller
             $invoice->hasOrder = 0;
             $invoice->save();
 
-            return redirect(route('sell.index'))->with('success', "La venta se ha generado con exito.");
+            return redirect(route('invoice.show', $invoice->id))->with('success', "La venta se ha generado con exito.");
         }
         
     }

@@ -18,6 +18,7 @@ use App\Models\Invoice;
 use App\Models\Employee;
 use App\Models\Job;
 use App\Models\Shop;
+use App\Models\Payment;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,10 @@ use App\Models\Shop;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/payment/search', function () {
+    return view('payment.index',["orders"=>Order::all(),"payments"=>Payment::all()]);
+})->name('payment.search');
 
 Route::get('/client/search', function (Request $request) {
     $results = Client::search($request->search)->simplePaginate(5);
@@ -62,18 +67,35 @@ Route::get('/payment/create', function (){
     return view('payment.create',["orders"=>Order::all(), "clients"=>Client::all()]);
 })->name('payment.create');
 
+Route::get('/payment/index', function () {
+    $payment = Payment::simplePaginate(5);
+    return view('payment.index',["orders"=>Order::all(),"payments"=>$payment]);
+})->name('payment.index');
+
+Route::get('/payment/invoice/{id}', function ($id){
+    return view('payment.invoice',["orders"=>Order::all(), "clients"=>Client::all(), "invoices"=>Invoice::all(), "payment"=>Payment::find($id)]);
+})->name('payment.invoice');
+
 Route::post('/payment/do', function (Request $request){
-    $order = Order::find($request->id);
+    $order = Order::find($request->order_id);
     $invoice = Invoice::where('product_id', '=', $order->id)->first();
 
-    $order->paid += $request->paid;
+    $date = date("Y-m-d");
+
+    $order->paid += $request->amount;
     if($invoice->subtotal <= $order->paid){
         $order->is_paid = 1;
     }
 
     $order->save();
 
-    return redirect(route('payment.create'))->with('success', "El pago se ha generado con éxito.");
+    $payment = new Payment;
+    $payment->amount = $request->amount;
+    $payment->order_id = $request->order_id;
+    $payment->date = $date;
+    $payment->save();
+
+    return redirect(route('payment.invoice', $payment->id))->with('success', "El pago se ha generado con éxito.");
 })->name('payment.do');
 
 Route::resource('user', UserController::class);

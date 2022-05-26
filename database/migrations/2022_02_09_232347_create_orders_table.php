@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
             $table->string('details');
             $table->date('deliveryDate');
             $table->unsignedBigInteger('client_id');
+            $table->integer('is_paid')->default('0');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->timestamps();
         });

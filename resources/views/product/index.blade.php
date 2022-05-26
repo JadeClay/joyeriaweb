@@ -25,7 +25,10 @@
                 <th>Size</th>
                 <th>Color</th>
                 <th>Material</th>
-                <th>Acciones</th>
+                <th>Precio</th>
+                @if (Auth::user()->role == 1)
+                    <th>Acciones</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -37,23 +40,26 @@
                     <td>{{ $product->size }}</td>
                     <td>{{ $product->color }}</td>
                     <td>{{ $product->material }}</td>
-                    <td>
-                        <form action="{{ route('product.destroy', $product->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-delete">
-                                <span class="material-icons">
-                                    delete
-                                </span>
-                            </button> 
-                        </form>
+                    <td>{{ $product->price }}</td>
+                    @if (Auth::user()->role == 1)
+                        <td>
+                            <form action="{{ route('product.destroy', $product->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-delete">
+                                    <span class="material-icons">
+                                        delete
+                                    </span>
+                                </button> 
+                            </form>
 
-                        <a class="btn btn-edit" href="{{ route('product.edit', $product->id) }}">
-                            <span class="material-icons">
-                                    edit
-                            </span>
-                        </a>
-                    </td>
+                            <a class="btn btn-edit" href="{{ route('product.edit', $product->id) }}">
+                                <span class="material-icons">
+                                        edit
+                                </span>
+                            </a>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>

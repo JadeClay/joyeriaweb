@@ -27,7 +27,7 @@
                     <li class="hvr-underline-from-center"><a href="{{ route('client.create') }}"><span class="inline-icon material-icons">admin_panel_settings</span> Clientes</a></li>
                     <li class="hvr-underline-from-center"><a href="{{ route('sell.create') }}"><span class="inline-icon material-icons">sell</span> Ventas</a></li>
                     <li class="hvr-underline-from-center"><a href="{{ route('payment.create') }}"><span class="inline-icon material-icons">payments</span> Pagos</a></li>
-                    <li class="hvr-underline-from-center"><a href="{{ route('product.create') }}"><span class="inline-icon material-icons">percent</span> Productos</a></li>
+                    <li class="hvr-underline-from-center"><a href="@auth @if(Auth::user()->role == 1) {{ route('product.create') }} @else {{ route('product.index') }} @endif @endauth "><span class="inline-icon material-icons">percent</span> Productos</a></li>
                     @guest
                         @if (Route::has('login'))
                             <li class="login">
@@ -63,7 +63,7 @@
 
         <footer>
             <div class="copyright">
-                <p>&copy 2021 - Oscar Piña y Arturo Rodríguez</p>
+                <p>&copy; 2022 - Oscar Alberto Piña Peña</p>
             </div>
             <div class="social">
                 <a href="mailto:oscaralbertopinap@gmail.com" class="support">Soporte técnico</a>

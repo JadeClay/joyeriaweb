@@ -191,17 +191,6 @@
                 @enderror
             </div>
             <div>
-                <label for="amount">Total a Pagar</label>
-                <br>
-                <input id="amount" type="number" name="amount" required>
-                <br>
-                @error('amount')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div>
                 <label for="stock">Cantidad</label>
                 <br>
                 <input id="stock" type="number" name="stock" required>

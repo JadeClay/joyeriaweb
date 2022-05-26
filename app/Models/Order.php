@@ -20,6 +20,7 @@ class Order extends Model
         'details',
         'deliveryDate',
         'client_id',
+        'is_paid',
     ];
 
 }

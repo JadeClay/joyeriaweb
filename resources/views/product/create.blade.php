@@ -71,6 +71,17 @@
                     </span>
                 @enderror
             </div>
+            <div>
+                <label for="price">{{ __('Precio') }}</label>
+                <br>
+                <input id="price" type="number" name="price" required autocomplete="price">
+                <br>
+                @error('price')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
             <div class="form-actions">
                 <button type="submit" class="btn btn-submit">
                     {{ __('Crear producto') }}

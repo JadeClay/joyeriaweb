@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Joyerias Brador || Factura {{ $invoice->id }}</title>
+		<title>Joyerias Brador || Comprobante de Pago {{ $payment->id }}</title>
 
 		<style>
 			.invoice-box {
@@ -111,8 +111,8 @@
 								</td>
 
 								<td>
-									Factura #: {{ $invoice->id }}<br />
-									Fecha de Emisión: {{ $invoice->date }}<br />
+									Comprobante de Pago #: {{ $payment->id }}<br />
+									Fecha de Emisión: {{ $payment->date }}<br />
 								</td>
 							</tr>
 						</table>
@@ -134,7 +134,7 @@
 
 								<td>
 									<strong>Cliente:</strong><br />
-									{{ $clients->find($invoice->client_id)->name }} {{ $clients->find($invoice->client_id)->surname }}<br />
+									{{ $clients->find($orders->find($payment->order_id)->client_id)->name }} {{ $clients->find($orders->find($payment->order_id)->client_id)->surname }}<br />
 								</td>
 							</tr>
 						</table>
@@ -142,48 +142,42 @@
 				</tr>
 
 				<tr class="heading">
-					<td>Item</td>
+					<td>Pedido a abonar</td>
 
-					<td>Precio</td>
+					<td>Abonado</td>
 				</tr>
 
 				<tr class="item">
 					<td>
                         <?php 
-                            if($invoice->hasOrder){
-                                $id = $invoice->product_id;
-                                $name = $orders->find($id)->name;
-                                $link = "<a href=" . route('sell.show', $invoice->id) . ">[PEDIDO] </a>";
-                                echo $link . $name;
-                            } else {
-                                $id = $invoice->product_id;
-                                $name = $products->find($id)->name;
-                                echo $name;
-                            }
+                            $name = $orders->find($payment->order_id)->name;
+                            $link = "[PEDIDO] ";
+							echo $link . $name;
                         ?>
                     </td>
 
-					<td>RD${{ $invoice->amount }}</td>
+					<td>RD${{ $payment->amount }}</td>
 				</tr>
 
 				<tr class="heading">
-					<td>Impuesto sobre Transacciones de Bienes y Servicios</td>
+					<td>Pagado hasta la fecha</td>
 
-					<td>(I2)</td>
+					<td>RD$</td>
 				</tr>
 
 				<tr class="details">
-					<td>18%</td>
+					<td></td>
 
-					<td>RD${{ $invoice->itbis }}</td>
+					<td>RD${{ $orders->find($payment->order_id)->paid }}</td>
 				</tr>
 
 				<tr class="total">
-					<td>Total: RD${{ $invoice->subtotal }}</td>
+					<td></td>
 
-					@if ($invoice->hasOrder)
-						<td>Pago Inicial: RD${{ $orders->find($invoice->product_id)->initial }} <br /> Restante: RD${{ $invoice->subtotal - $orders->find($invoice->product_id)->initial }}</td>
-					@endif
+					<td>
+						Total: RD${{ $invoices->where('product_id', '=', $orders->find($payment->order_id)->id)->first()->subtotal }} <br />
+						Restante: RD${{ $invoices->where('product_id', '=', $orders->find($payment->order_id)->id)->first()->subtotal - $orders->find($payment->order_id)->paid}}
+					</td>
 				</tr>
 			</table>
 		</div>
