@@ -176,7 +176,7 @@
 
 					<td>
 						Total: RD${{ $invoices->where('product_id', '=', $orders->find($payment->order_id)->id)->first()->subtotal }} <br />
-						Restante: RD${{ $invoices->where('product_id', '=', $orders->find($payment->order_id)->id)->first()->subtotal - $orders->find($payment->order_id)->paid}}
+						Restante: RD${{ $invoices->where('product_id', '=', $orders->find($payment->order_id)->id)->first()->subtotal - $payment->paid}}
 					</td>
 				</tr>
 			</table>

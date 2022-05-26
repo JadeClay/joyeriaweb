@@ -83,18 +83,19 @@ Route::post('/payment/do', function (Request $request){
 
     $date = date("Y-m-d");
 
+    $payment = new Payment;
+    $payment->amount = $request->amount;
+    $payment->order_id = $request->order_id;
+    $payment->date = $date;
+    $payment->paid = $order->paid;
+    $payment->save();
+
     $order->paid += $request->amount;
     if($invoice->subtotal <= $order->paid){
         $order->is_paid = 1;
     }
 
     $order->save();
-
-    $payment = new Payment;
-    $payment->amount = $request->amount;
-    $payment->order_id = $request->order_id;
-    $payment->date = $date;
-    $payment->save();
 
     return redirect(route('payment.invoice', $payment->id))->with('success', "El pago se ha generado con éxito.");
 })->name('payment.do');

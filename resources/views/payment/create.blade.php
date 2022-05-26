@@ -22,7 +22,7 @@
                     <option value="0">Selecciona:</option>
                     @foreach ($orders as $order)
                         @if ($order->is_paid == 0)
-                            <option value="{{ $order->id }}">{{ $order->name }} {{ $clients->find($order->client_id)->name }} {{ $clients->find($order->client_id)->surname }}</option>
+                            <option value="{{ $order->id }}">{{ $order->name }}, {{ $clients->find($order->client_id)->name }} {{ $clients->find($order->client_id)->surname }}</option>
                         @endif
                     @endforeach
                 </select>
