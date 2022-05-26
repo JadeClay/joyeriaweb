@@ -168,7 +168,7 @@
 				<tr class="details">
 					<td></td>
 
-					<td>RD${{ $payment->paid }}</td>
+					<td>RD${{ $payment->paid + $payment->amount }}</td>
 				</tr>
 
 				<tr class="total">
