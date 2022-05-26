@@ -168,7 +168,7 @@
 				<tr class="details">
 					<td></td>
 
-					<td>RD${{ $orders->find($payment->order_id)->paid }}</td>
+					<td>RD${{ $payment->paid }}</td>
 				</tr>
 
 				<tr class="total">
