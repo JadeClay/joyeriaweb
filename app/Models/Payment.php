@@ -14,6 +14,7 @@ class Payment extends Model
         'amount',
         'order_id',
         'date',
+        'paid',
     ];
 
     /**
