@@ -35,8 +35,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/payment/search', function () {
-    return view('payment.index',["orders"=>Order::all(),"payments"=>Payment::all()]);
+Route::get('/payment/search', function (Request $request) {
+    $results = Payment::search($request->search)->simplePaginate(5);
+    return view('payment.index',["orders"=>Order::all(),"payments"=>$results]);
 })->name('payment.search');
 
 Route::get('/client/search', function (Request $request) {
